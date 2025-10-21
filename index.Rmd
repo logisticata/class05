@@ -627,7 +627,26 @@ Frota de 20 caminhões e objetivo: Determinar qual estratégia é mais econômic
 
 ## EXEMPLO RESOLVIDO 2 (continuação)
 
+.small[
+
+$$custo\;revisoes = veiculos * revisoes\;ano * custo\;revisao$$
+$$custo\;falhas = veiculos * falhas\;ano * custo\;falha$$
+
+
+
+$$custo\;total = custo\;revisoes + custo\;falha$$
+
+$$tempo\;parada\;revisoes = veiculos * revisoes\;ano * tempo\;parada\;revisao$$
+$$tempo\;parada\;falhas = veiculos * falhas\;ano * tempo\;parada\;falha$$
+$$tempo\;total\;parada = tempo\;parada\;revisoes + tempo\;parada\;falhas$$
+]
+
+---
+
+## EXEMPLO RESOLVIDO 2 (continuação)
+
 ### Cálculo de Custos - Estratégia A (Preventiva)
+
 ```{R echo=FALSE, message=FALSE, warning=FALSE}
 # Dados da Estratégia A
 veiculos <- 20
