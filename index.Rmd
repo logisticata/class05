@@ -997,30 +997,29 @@ Integração com operação
 
 ## Referências Bibliográficas
 .small[
-KARDEC, A.; NASCIF, J. Manutenção: Função Estratégica. 4ª ed. Rio de Janeiro: Qualitymark, 2019.
-FOGLIATTO, F. S.; RIBEIRO, J. L. D. Confiabilidade e Manutenção Industrial. Rio de Janeiro: Elsevier, 2009.
-XENOS, H. G. P. Gerenciando a Manutenção Produtiva. 2ª ed. Nova Lima: Falconi, 2014.
-LAFRAIA, J. R. B. Manual de Confiabilidade, Mantenabilidade e Disponibilidade. Rio de Janeiro: Qualitymark, 2001.
-MOUBRAY, J. Reliability-Centered Maintenance. 2nd ed. New York: Industrial Press, 1997.
-Normas Técnicas
-ABNT NBR 5462:1994 - Confiabilidade e Mantenabilidade
-ABNT NBR 15842:2010 - Qualidade de Serviço para Pequeno Comércio
-ISO 55000:2014 - Asset Management
-SILVA, R. P.; COSTA, A. L. "Análise de confiabilidade em frotas de transporte rodoviário". Revista Gestão & Produção, v. 28, n. 3, 2021.
-OLIVEIRA, M. A.; SANTOS, J. B. "Manutenção preditiva 4.0: aplicações em logística". Journal of Transport Literature, v. 15, n. 2, p. 45-62, 2022.
-FERREIRA, L. C. et al. "Veículos elétricos em frotas comerciais: análise de confiabilidade". Transportes, v. 30, n. 1, 2023.
-Sites e Recursos Online
-ABRAMAN - Associação Brasileira de Manutenção: www.abraman.org.br
-ANTT - Agência Nacional de Transportes Terrestres: www.antt.gov.br
+KARDEC, A.; NASCIF, J. Manutenção: Função Estratégica. 4ª ed. Rio de Janeiro: Qualitymark, 2019.   
+FOGLIATTO, F. S.; RIBEIRO, J. L. D. Confiabilidade e Manutenção Industrial. Rio de Janeiro: Elsevier, 2009.   
+XENOS, H. G. P. Gerenciando a Manutenção Produtiva. 2ª ed. Nova Lima: Falconi, 2014.   
+LAFRAIA, J. R. B. Manual de Confiabilidade, Mantenabilidade e Disponibilidade. Rio de Janeiro: Qualitymark, 2001.   
+MOUBRAY, J. Reliability-Centered Maintenance. 2nd ed. New York: Industrial Press, 1997.   
+ABNT NBR 5462:1994 - Confiabilidade e Mantenabilidade   
+ABNT NBR 15842:2010 - Qualidade de Serviço para Pequeno Comércio   
+ISO 55000:2014 - Asset Management   
+SILVA, R. P.; COSTA, A. L. "Análise de confiabilidade em frotas de transporte rodoviário". Revista Gestão & Produção, v. 28, n. 3, 2021.   
+OLIVEIRA, M. A.; SANTOS, J. B. "Manutenção preditiva 4.0: aplicações em logística". Journal of Transport Literature, v. 15, n. 2, p. 45-62, 2022.   
+FERREIRA, L. C. et al. "Veículos elétricos em frotas comerciais: análise de confiabilidade". Transportes, v. 30, n. 1, 2023.   
+ABRAMAN - Associação Brasileira de Manutenção: www.abraman.org.br   
+ANTT - Agência Nacional de Transportes Terrestres: www.antt.gov.br   
 Portal da Manutenção: www.manutencao.net
 ]
 ---
 
-## 
-class: center, middle, inverse
 
-Obrigado!
-Dúvidas?
+class: center, middle
+
+.huge[
+**DÚVIDAS?**
+]
 
 
 ---
