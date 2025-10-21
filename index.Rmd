@@ -1,0 +1,1031 @@
+---
+title: "Planejamento e Programas de Manutenção de Frotas"
+subtitle: "Logística de Transportes e Armazenagem"
+author: 
+  - <br></br>Renata Oliveira
+encoding: UTF-8
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "xaringan-themer.css"]
+
+    nature:
+      ratio: "16:9"
+      highlightLines: true
+      highlightStyle: solarized-light
+      countIncrementalSlides: false
+      slideNumberFormat: |
+         <div class="progress-bar-container">
+           <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+           </div>
+         </div>
+
+---
+
+```{R child = "setup.Rmd"}
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
+```{r xaringan-editable, echo=FALSE}
+xaringanExtra::use_editable(expires = 1)
+```
+
+```{r xaringan-panelset, echo=FALSE, message=FALSE, warning=FALSE}
+xaringanExtra::use_panelset()
+```
+
+```{r xaringanExtra-clipboard, echo=FALSE}
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+
+```{r xaringan-fit-screen, echo=FALSE}
+xaringanExtra::use_fit_screen()
+```
+
+```{r xaringan-extra-styles, echo=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+
+```{r xaringan-scribble, echo=FALSE}
+xaringanExtra::use_scribble()
+```
+
+
+## Planejamento e Programas de Manutenção de Frotas
+### Objetivos da Aula
+
+Ao final desta aula, você será capaz de:
+
+✓ Compreender os tipos de manutenção de frotas
+
+✓ Planejar programas de manutenção eficientes
+
+✓ Calcular indicadores de desempenho (MTBF, MTTR)
+
+✓ Tomar decisões baseadas em dados
+
+
+
+---
+
+## Planejamento e Programas de Manutenção de Frotas
+
+### Relevância:
+
+- Redução de custos operacionais
+- Aumento da disponibilidade da frota
+- Melhoria na qualidade do serviço
+- Competitividade empresarial
+
+---
+
+## Planejamento e Programas de Manutenção de Frotas
+
+### Conceitos Fundamentais
+
+**O que é Manutenção de Frotas?**
+
+**Definição:** Conjunto de ações técnicas e administrativas destinadas a manter ou recolocar veículos em condições de executar suas funções.
+
+.pull-left[
+
+**Objetivos Principais:**   
+- Maximizar disponibilidade
+- Minimizar custos totais
+- Garantir segurança
+- Prolongar vida útil dos ativos
+- Reduzir tempo de parada
+
+]
+
+.pull-right[
+
+**Desafios:**   
+- Envelhecimento da frota
+- Custos crescentes de peças
+- Escassez de mão de obra qualificada
+- Pressão por redução de custos
+- Regulamentações ambientais
+
+]
+
+---
+
+## Planejamento e Programas de Manutenção de Frotas
+
+### Tipos de Manutenção
+
+```{r echo=FALSE}
+
+tipos_manutencao <- data.frame(
+  Tipo = c("Corretiva", "Preventiva", "Preditiva", "Prescritiva"),
+  
+  Caracteristica = c(
+    "Após falha",
+    "Intervalos fixos",
+    "Condição monitorada",
+    "IA e otimização"
+  ),
+  
+  Vantagens = c(
+    "Simplicidade",
+    "Previsibilidade",
+    "Eficiência",
+    "Otimização máxima"
+  ),
+  
+  Desvantagens = c(
+    "Paradas não programadas",
+    "Over-maintenance",
+    "Investimento tecnológico",
+    "Alta complexidade"
+  ),
+  
+  Investimento = c("★☆☆☆", "★★☆☆", "★★★☆", "★★★★"),
+  
+  Eficiencia = c("★☆☆☆", "★★☆☆", "★★★☆", "★★★★"),
+  
+  Complexidade = c("★☆☆☆", "★★☆☆", "★★★☆", "★★★★"),
+  
+  ROI = c("Baixo", "Médio", "Alto", "Muito Alto*")
+)
+
+kable(tipos_manutencao, 
+      format = "html", 
+      escape = FALSE,
+      align = c("l", "l", "l", "l", "c", "c", "c", "c")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                font_size = 24,
+                full_width = FALSE) %>%
+  column_spec(1, bold = TRUE, color = "white", background = "#2C3E50") %>%
+  column_spec(5, color = "#E74C3C") %>%
+  column_spec(6, color = "#27AE60") %>%
+  column_spec(7, color = "#F39C12") %>%
+  column_spec(8, color = "#3498DB", bold = TRUE) %>%
+  add_header_above(c(" " = 4, "Indicadores" = 4), 
+                   bold = TRUE, 
+                   background = "#34495E", 
+                   color = "white") %>%
+  add_footnote("* ROI muito alto após período de maturação (3-5 anos)", 
+               notation = "symbol")
+```
+
+
+---
+
+## Evolução das Estratégias de Manutenção
+
+```{R echo=FALSE, Fig.Height=15}
+  
+evolucao <- data.frame(
+  Geracao = factor(c("1ª Geração\n(até 1945)",
+                     "2ª Geração\n(1945-1970)",
+                     "3ª Geração\n(1970-2000)",
+                     "4ª Geração\n(2000-hoje)"),
+                   levels = c("1ª Geração\n(até 1945)",
+                              "2ª Geração\n(1945-1970)",
+                              "3ª Geração\n(1970-2000)",
+                              "4ª Geração\n(2000-hoje)")),
+  Foco = c("Corretiva", 
+           "Preventiva", 
+           "Preditiva", 
+           "Inteligente/Prescritiva"),
+  Eficiencia = c(30, 55, 75, 90)
+)
+
+ggplot(evolucao, aes(x = Geracao, y = Eficiencia, fill = Foco)) +
+  geom_col(width = 0.7) +
+  geom_text(aes(label = paste0(Eficiencia, "%")), 
+            vjust = -0.5, size = 5, fontface = "bold") +
+  scale_fill_brewer(palette = "Set2") +
+  labs(title = "Evolução da Eficiência nas Estratégias de Manutenção",
+       y = "Eficiência Operacional (%)",
+       x = "") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "bottom",
+        plot.title = element_text(hjust = 0.5, face = "bold"))
+```
+
+
+---
+
+## Planejamento da Manutenção
+
+### Etapas do Processo
+
+.pull-left[
+
+**1. Diagnóstico**   
+Inventário da frota   
+Histórico de falhas   
+Análise de criticidade     
+Identificação de gargalos   
+
+**2. Definição de Estratégia**      
+Seleção do tipo de manutenção   
+Definição de periodicidade   
+Alocação de recursos   
+Estabelecimento de metas   
+
+]
+
+.pull-right[
+
+**3. Implementação**   
+Treinamento de equipes   
+Aquisição de ferramentas   
+Implantação de sistemas   
+Comunicação interna
+
+**4. Controle e Melhoria**   
+Monitoramento de indicadores   
+Análise de desvios   
+Ações corretivas   
+Melhoria contínua (PDCA)   
+
+]
+
+---
+
+## Fundamentos da Confiabilidade
+
+.pull-left[
+
+**Confiabilidade (R)**   
+É a capacidade de um veículo ou componente funcionar sem falhas durante um período de tempo.
+ 
+**Tempo Médio Entre Falhas (MTBF)**   
+Quanto tempo o veículo opera sem problemas. Quanto maior, melhor.   
+Exemplo: MTBF de 2.000h
+
+**Taxa de Falhas**   
+Quantas falhas ocorrem por período. Quanto menor, melhor   
+Exemplo: 2 falhas por ano   
+]
+
+.pull-right[
+**Defeitos de fabricação**   
+Problemas de instalação   
+Vida Útil (6 meses - 5 anos)
+
+**Falhas aleatórias**   
+Menor taxa de falhas   
+Desgaste (após 5 anos)
+
+**Componentes envelhecidos**   
+Aumento de falhas   
+Necessidade de substituições
+]
+
+
+
+---
+
+## Indicadores de Desempenho (KPIs)
+
+### Principais Métricas
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+
+kpis <- data.frame(
+  Indicador = c("MTBF", "MTTR", "Disponibilidade", "Taxa de Falhas", "Custo por km"),
+  Sigla = c("Mean Time Between Failures", 
+            "Mean Time To Repair",
+            "Availability",
+            "Failure Rate",
+            "Cost per km"),
+  Formula = c("Tempo Total / Nº Falhas",
+              "Tempo Reparo / Nº Reparos",
+              "MTBF / (MTBF + MTTR) × 100%",
+              "Nº Falhas / Tempo Total",
+              "Custo Total / km Rodados"),
+  Meta = c("> 5000h", "< 4h", "> 95%", "< 0,0002", "Benchmark")
+)
+
+kable(kpis, format = "html", escape = FALSE,
+      col.names = c("Indicador", "Sigla", "Fórmula", "Meta")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                font_size = 30) %>%
+  column_spec(1, bold = TRUE, width = "3cm") %>%
+  column_spec(4, bold = TRUE, color = "white", background = "#27AE60")
+
+```
+
+Importância: Esses indicadores permitem avaliar objetivamente o desempenho da frota e tomar decisões baseadas em dados.
+
+
+---
+
+## Programas de Manutenção Preventiva
+
+### Estrutura de um Programa Eficaz
+
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+  
+programa <- data.frame(
+  Periodicidade = c("Diária", "Semanal", "Mensal", "Trimestral", "Semestral", "Anual"),
+  Atividades = c(
+    "Inspeção visual, níveis de fluidos",
+    "Calibragem de pneus, luzes, freios",
+    "Troca de óleo, filtros, alinhamento",
+    "Sistema elétrico, suspensão, direção",
+    "Revisão completa, testes de desempenho",
+    "Overhaul, substituições programadas"
+  ),
+  Tempo = c("15 min", "30 min", "2-3h", "4-6h", "8h", "16-24h"),
+  Responsavel = c("Motorista", "Motorista/Mecânico", "Mecânico", 
+                  "Mecânico", "Equipe Especializada", "Oficina Autorizada")
+)
+
+kable(programa, format = "html", escape = FALSE,
+      col.names = c("Periodicidade", "Atividades", "Tempo", "Responsável")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"), 
+                font_size = 30) %>%
+  column_spec(1, bold = TRUE, color = "white", background = "#3498DB") %>%
+  column_spec(3, bold = TRUE)
+```
+
+
+---
+
+## Programas de Manutenção Preditiva
+
+### Técnicas de Monitoramento de Condição
+
+.pull-left[
+
+**Análise de Vibrações**   
+Detecção de desbalanceamento   
+Identificação de folgas   
+Problemas em rolamentos   
+Desalinhamento de eixos   
+**Termografia**   
+Pontos quentes em componentes   
+Problemas elétricos   
+Atrito excessivo   
+Falhas em isolamento
+
+]
+
+.pull-right[
+
+**Análise de Óleo**   
+Contaminação por partículas   
+Degradação do lubrificante   
+Presença de água   
+Desgaste de componentes   
+**Ultrassom**   
+Vazamentos de ar   
+Falhas em válvulas    
+Problemas em rolamentos   
+Descargas elétricas   
+
+]
+
+.small[
+> Estudos mostram que a manutenção preditiva pode reduzir custos em até 40% comparada à preventiva tradicional.
+]
+
+---
+
+## EXEMPLO RESOLVIDO 1
+
+**Cálculo de MTBF e Disponibilidade**
+
+Situação: Uma empresa de transporte possui um caminhão que apresentou as seguintes falhas no último ano:
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+  
+dados_falhas <- data.frame(
+  Falha = 1:5,
+  Data = c("15/01", "10/03", "22/05", "08/08", "30/10"),
+  Tempo_Operacao = c(720, 1440, 1800, 2160, 2040),
+  Tempo_Reparo = c(8, 4, 6, 12, 5)
+)
+
+kable(dados_falhas, format = "html", escape = FALSE,
+      col.names = c("Falha", "Data", "Tempo de Operação (h)", "Tempo de Reparo (h)")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), font_size = 30)
+
+```
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**Dados adicionais:**
+
+Período analisado: 12 meses   
+Número total de falhas: 5   
+Custo total de manutenção: R$ 15.000   
+Quilometragem total rodada: 120.000 km   
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**1. Cálculo do MTBF**
+
+$$𝑀𝑇𝐵𝐹=Tempo\; Total\; de\; Operação/Número\; de\; Falhas$$
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+# Dados
+tempo_operacao <- c(720, 1440, 1800, 2160, 2040)
+tempo_total <- sum(tempo_operacao)
+n_falhas <- 5
+
+# Cálculo MTBF
+MTBF <- tempo_total / n_falhas
+
+cat("Tempo total operado:", tempo_total, "horas\n")
+cat("Número de falhas:", n_falhas, "\n")
+cat("MTBF =", tempo_total, "÷", n_falhas, 
+    "=", MTBF, "horas\n")
+
+```
+
+Interpretação:  Em média, o caminhão opera 1.632 horas entre uma falha e outra.
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**2. Cálculo do MTTR**
+
+$$𝑀𝑇𝑇𝑅=Tempo\; Total\; de\; Reparo/Número\; de\; Reparos$$
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+# Dados
+tempo_reparo <- c(8, 4, 6, 12, 5)
+tempo_total_reparo <- sum(tempo_reparo)
+
+# Cálculo MTTR
+MTTR <- tempo_total_reparo / n_falhas
+
+cat("Tempo total de reparo:", tempo_total_reparo, "horas\n")
+cat("Número de reparos:", n_falhas, "\n")
+cat("MTTR =", tempo_total_reparo, "÷", 
+    n_falhas, "=", MTTR, "horas\n")
+```
+
+Interpretação: Em média, cada reparo leva 7 horas para ser concluído.
+
+
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**3. Disponibilidade Operacional e Custos**
+
+$$Disponibilidade=𝑀𝑇𝐵𝐹/(𝑀𝑇𝐵𝐹+𝑀𝑇𝑇𝑅)$$
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+  
+# Cálculo da Disponibilidade
+Disponibilidade <- (MTBF / (MTBF + MTTR)) * 100
+
+cat("MTBF:", MTBF, "horas\n")
+cat("MTTR:", MTTR, "horas\n")
+cat("Disponibilidade =", MTBF, "÷", 
+    "(", MTBF, "+", MTTR, ")\n")
+cat("Disponibilidade =", 
+    round(Disponibilidade, 2), "%\n")
+```
+
+Interpretação: O veículo está disponível para operação 99,57% do tempo.
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**4. Percentual do tempo parado no ano:**
+
+$$Percentual\; tempo\; parado=tempo\; total\; reparo\;/(horas\; no\; ano)$$
+
+```{r echo=FALSE}
+
+tempo_parado_ano <- (tempo_total_reparo / 8760) * 100
+cat("Tempo parado:", round(tempo_parado_ano, 2), "% do ano")
+```
+
+
+**4. Custo por Quilômetro**
+
+$$Custo\; por\; km = Custo\; Total/km\; Rodados$$
+
+```{r echo=FALSE}
+
+# Dados
+custo_total <- 15000
+km_rodados <- 120000
+
+# Cálculo
+custo_por_km <- custo_total / km_rodados
+
+cat("Custo total:", "R$", custo_total, "\n")
+cat("Km rodados:", km_rodados, "\n")
+cat("Custo/km = R$", custo_total, "÷", 
+    km_rodados, "\n")
+cat("Custo/km = R$", 
+    round(custo_por_km, 2), "\n")
+```
+
+
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**4. Análise de Resultados**
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+
+resultados <- data.frame(
+  Indicador = c("MTBF", "MTTR", "Disponibilidade", "Custo/km", "Taxa de Falhas"),
+  Valor_Calculado = c(
+    paste(MTBF, "horas"), 
+    paste(MTTR, "horas"), 
+    paste0(round(Disponibilidade, 2), "%"),
+    paste0("R$ ", round(custo_por_km, 2)),
+    paste(n_falhas, "falhas/ano")
+  ),
+  Meta = c("1500h", "8h", "95%", "R$ 0,15", "< 6 falhas/ano"),
+  Status = c("✓ Acima da Meta", "✓ Dentro da Meta", "✓ Acima da Meta", "✓ Abaixo da Meta", "✓ Dentro da Meta"),
+  Acao = c("Manter", "Manter", "Manter", "Manter", "Manter")
+)
+
+kable(resultados, format = "html", escape = FALSE,
+      col.names = c("Indicador", "Valor Calculado", "Meta", "Status", "Ação")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), 
+                font_size = 30) %>%
+  column_spec(4, bold = TRUE, color = "white", background = "#27AE60")
+```
+
+
+
+---
+
+## EXEMPLO RESOLVIDO 1 (continuação)
+
+**Conclusão Geral:**
+
+✅ Desempenho Excelente: Todos os indicadores estão dentro ou acima das metas estabelecidas
+
+✅ Disponibilidade Alta: O veículo fica parado apenas 0,43% do tempo
+
+✅ Custos Controlados: Custo por km está abaixo da meta
+
+✅ Recomendação: Manter o programa atual de manutenção preventiva
+
+
+
+---
+
+## EXEMPLO RESOLVIDO 2
+
+A empresa LogFast está avaliando duas estratégias para manutenção de transmissões:
+.pull-left[
+**Estratégia A: Manutenção Preventiva**   
+- Revisão a cada 40.000 km
+- Custo por revisão: R$ 800
+- Tempo de parada: 4 horas
+- Previsão: 3 revisões/ano por veículo
+- Falhas inesperadas: 1 por ano
+- Custo de falha: R$ 3.500
+- Tempo de parada por falha: 24 horas
+]
+
+.pull-right[
+**Estratégia B: Manutenção Corretiva**
+- Sem manutenção programada
+- Reparo apenas quando quebra
+- Custo médio por reparo: R$ 4.200
+- Tempo de parada: 30 horas
+- Falhas esperadas: 4 por ano
+- Custo adicional (urgência): +20%
+- Impacto no serviço: Multas de R$ 500/falha
+]
+
+Frota de 20 caminhões e objetivo: Determinar qual estratégia é mais econômica
+
+---
+
+## EXEMPLO RESOLVIDO 2 (continuação)
+
+### Cálculo de Custos - Estratégia A (Preventiva)
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+# Dados da Estratégia A
+veiculos <- 20
+revisoes_ano <- 3
+custo_revisao <- 800
+tempo_parada_revisao <- 4
+falhas_ano_A <- 1
+custo_falha_A <- 3500
+tempo_parada_falha_A <- 24
+
+# Cálculos
+custo_revisoes <- veiculos * revisoes_ano * custo_revisao
+custo_falhas_A <- veiculos * falhas_ano_A * custo_falha_A
+custo_total_A <- custo_revisoes + custo_falhas_A
+
+tempo_parada_revisoes <- veiculos * revisoes_ano * tempo_parada_revisao
+tempo_parada_falhas_A <- veiculos * falhas_ano_A * tempo_parada_falha_A
+tempo_total_parada_A <- tempo_parada_revisoes + tempo_parada_falhas_A
+
+cat("=== ESTRATÉGIA A: PREVENTIVA ===\n\n")
+cat("Custo com revisões:", "R$", format(custo_revisoes, big.mark = "."), "\n")
+cat("Custo com falhas:", "R$", format(custo_falhas_A, big.mark = "."), "\n")
+cat("CUSTO TOTAL ANUAL:", "R$", format(custo_total_A, big.mark = "."), "\n\n")
+cat("Tempo de parada (revisões):", tempo_parada_revisoes, "horas\n")
+cat("Tempo de parada (falhas):", tempo_parada_falhas_A, "horas\n")
+cat("TEMPO TOTAL DE PARADA:", tempo_total_parada_A, "horas/ano\n")
+
+```
+
+---
+
+## EXEMPLO RESOLVIDO 2 (continuação)
+
+### Cálculo de Custos - Estratégia B (Corretiva)
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+
+
+# Dados da Estratégia B
+falhas_ano_B <- 4
+custo_reparo_base <- 4200
+adicional_urgencia <- 0.20
+custo_reparo_B <- custo_reparo_base * (1 + adicional_urgencia)
+tempo_parada_falha_B <- 30
+multa_por_falha <- 500
+
+# Cálculos
+custo_reparos <- veiculos * falhas_ano_B * custo_reparo_B
+custo_multas <- veiculos * falhas_ano_B * multa_por_falha
+custo_total_B <- custo_reparos + custo_multas
+
+tempo_total_parada_B <- veiculos * falhas_ano_B * tempo_parada_falha_B
+
+cat("=== ESTRATÉGIA B: CORRETIVA ===\n\n")
+cat("Custo com reparos:", "R$", format(custo_reparos, big.mark = "."), "\n")
+cat("Custo com multas:", "R$", format(custo_multas, big.mark = "."), "\n")
+cat("CUSTO TOTAL ANUAL:", "R$", format(custo_total_B, big.mark = "."), "\n\n")
+cat("TEMPO TOTAL DE PARADA:", tempo_total_parada_B, "horas/ano\n")
+
+```
+
+---
+
+## EXEMPLO RESOLVIDO 2 (continuação)
+### Comparação e Análise de Decisão
+
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+comparacao <- data.frame(
+  Aspecto = c("Custo Anual Total", "Custo por Veículo", "Tempo de Parada Total", 
+              "Tempo de Parada por Veículo", "Disponibilidade da Frota"),
+  Estrategia_A = c(
+    paste0("R$ ", format(custo_total_A, big.mark = ".")),
+    paste0("R$ ", format(custo_total_A/veiculos, big.mark = ".")),
+    paste(tempo_total_parada_A, "horas"),
+    paste(tempo_total_parada_A/veiculos, "horas"),
+    paste0(round((1 - tempo_total_parada_A/(veiculos*8760))*100, 1), "%")
+  ),
+  Estrategia_B = c(
+    paste0("R$ ", format(custo_total_B, big.mark = ".")),
+    paste0("R$ ", format(custo_total_B/veiculos, big.mark = ".")),
+    paste(tempo_total_parada_B, "horas"),
+    paste(tempo_total_parada_B/veiculos, "horas"),
+    paste0(round((1 - tempo_total_parada_B/(veiculos*8760))*100, 1), "%")
+  ),
+  Diferenca = c(
+    paste0("R$ ", format(custo_total_B - custo_total_A, big.mark = ".")),
+    paste0("R$ ", format((custo_total_B - custo_total_A)/veiculos, big.mark = ".")),
+    paste(tempo_total_parada_B - tempo_total_parada_A, "horas"),
+    paste((tempo_total_parada_B - tempo_total_parada_A)/veiculos, "horas"),
+    paste0(round(((1 - tempo_total_parada_A/(veiculos*8760)) - 
+                   (1 - tempo_total_parada_B/(veiculos*8760)))*100, 1), " p.p.")
+  )
+)
+
+kable(comparacao, format = "html", escape = FALSE,
+      col.names = c("Aspecto", "Estratégia A (Preventiva)", "Estratégia B (Corretiva)", "Diferença")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), font_size = 30) %>%
+  column_spec(2, bold = TRUE, color = "white", background = "#27AE60") %>%
+  column_spec(4, bold = TRUE)
+
+```
+
+---
+
+## EXEMPLO RESOLVIDO 2 (continuação)
+### Análise Gráfica da Comparação
+```{R echo=FALSE, message=FALSE, warning=FALSE}
+
+
+# Criar dados para visualização
+dados_comparacao <- data.frame(
+  Estrategia = rep(c("Preventiva", "Corretiva"), each = 2),
+  Tipo = rep(c("Custo", "Tempo Parado"), 2),
+  Valor = c(custo_total_A/1000, tempo_total_parada_A, 
+            custo_total_B/1000, tempo_total_parada_B),
+  Unidade = rep(c("R$ (milhares)", "Horas"), 2)
+)
+
+ggplot(dados_comparacao, aes(x = Estrategia, y = Valor, fill = Estrategia)) +
+  geom_col(width = 0.6) +
+  geom_text(aes(label = ifelse(Tipo == "Custo", 
+                                paste0("R$ ", round(Valor, 0), "k"),
+                                paste(round(Valor, 0), "h"))), 
+            vjust = -0.5, size = 5, fontface = "bold") +
+  facet_wrap(~Tipo, scales = "free_y") +
+  scale_fill_manual(values = c("Preventiva" = "#27AE60", "Corretiva" = "#E74C3C")) +
+  labs(title = "Comparação entre Estratégias de Manutenção",
+       y = "Valor",
+       x = "") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5, face = "bold"),
+        strip.text = element_text(size = 12, face = "bold"))
+
+```
+
+---
+
+## Ferramentas de Apoio à Gestão
+.pull-left[
+
+**CMMS (Computerized Maintenance Management System)**   
+Registro de ordens de serviço   
+Controle de estoque de peças   
+Histórico de manutenções   
+Agendamento automático   
+Relatórios gerenciais   
+Integração com telemetria
+Centralização de informações    
+Rastreabilidade completa   
+Redução de falhas humanas
+]
+
+.pull-right[
+
+**Análise de Falhas**   
+Diagrama de Ishikawa   
+5 Porquês   
+FMEA (Failure Mode and Effects Analysis)   
+Árvore de Falhas (FTA)   
+Análise de Pareto   
+Gráficos de tendência   
+Cartas de controle    
+Análise comparativa    
+]
+
+---
+
+## Ferramentas de Apoio à Gestão (continuação)
+Integração com IoT e Telemetria
+```{R echo=FALSE, Fig.Height=5.5}
+  
+# Simulação de dados de telemetria
+set.seed(456)
+horas <- 0:23
+temperatura_motor <- 70 + 15 * sin(horas * pi / 12) + rnorm(24, 0, 3)
+rpm_medio <- 1500 + 300 * sin(horas * pi / 12) + rnorm(24, 0, 50)
+consumo <- 25 + 5 * sin(horas * pi / 12) + rnorm(24, 0, 2)
+
+telemetria <- data.frame(
+  Hora = horas,
+  Temperatura = temperatura_motor,
+  RPM = rpm_medio,
+  Consumo = consumo
+)
+
+# Gráfico multi-eixo
+library(gridExtra)
+
+p1 <- ggplot(telemetria, aes(x = Hora, y = Temperatura)) +
+  geom_line(color = "#E74C3C", size = 1.2) +
+  geom_hline(yintercept = 90, linetype = "dashed", color = "red") +
+  labs(y = "Temperatura Motor (°C)") +
+  theme_minimal()
+
+p2 <- ggplot(telemetria, aes(x = Hora, y = RPM)) +
+  geom_line(color = "#3498DB", size = 1.2) +
+  labs(y = "RPM Médio") +
+  theme_minimal()
+
+p3 <- ggplot(telemetria, aes(x = Hora, y = Consumo)) +
+  geom_line(color = "#2ECC71", size = 1.2) +
+  labs(x = "Hora do Dia", y = "Consumo (L/h)") +
+  theme_minimal()
+
+grid.arrange(p1, p2, p3, ncol = 1, 
+             top = "Monitoramento de Telemetria - Últimas 24 horas")
+```
+
+---
+
+## Boas Práticas em Gestão de Manutenção
+
+.small[
+.pull-left[
+
+**Técnicas**   
+1. Padronização   
+Procedimentos documentados   
+Checklists de inspeção   
+Formulários padronizados   
+Treinamento contínuo   
+
+2. Gestão de Estoque   
+Análise ABC de peças   
+Estoque mínimo/máximo   
+Parcerias com fornecedores   
+Rastreabilidade
+
+3. Análise de Dados
+Coleta sistemática   
+KPIs atualizados   
+Reuniões de análise crítica   
+Benchmarking   
+
+]
+
+.pull-right[
+
+**Tecnologias**   
+4. Automação   
+CMMS integrado   
+IoT e sensores   
+Alertas automáticos   
+Integração ERP   
+
+5. Manutenção Preditiva/Prescritiva   
+Machine Learning   
+Análise de padrões   
+Previsão de falhas   
+Otimização de recursos   
+
+6. Mobilidade
+Apps para motoristas   
+Tablets para mecânicos   
+Assinatura digital   
+Fotos e vídeos
+
+]]
+
+---
+
+## Tendências Futuras
+
+.midi[
+.pull-left[
+
+**Tecnologias Emergentes**   
+Inteligência Artificial   
+Diagnóstico automático de falhas   
+Otimização de rotas de manutenção   
+Previsão de demanda de peças   
+Chatbots para suporte   
+Digital Twin   
+Simulação virtual da frota   
+Testes de cenários   
+Otimização sem interrupção   
+Treinamento imersivo   
+Blockchain   
+Rastreabilidade de peças   
+Histórico imutável   
+Contratos inteligentes   
+Certificação digital   
+
+]
+
+.pull-right[
+
+**Mudanças no Setor**   
+Eletrificação   
+Crescimento de frotas elétricas   
+Novas competências técnicas   
+Infraestrutura de recarga   
+Gestão de baterias   
+Veículos Autônomos   
+Redução de acidentes   
+Manutenção preventiva automática   
+Novos desafios de software   
+Regulamentação em evolução   
+Economia Circular   
+Remanufatura de componentes   
+Reciclagem de materiais   
+Extensão de vida útil   
+Sustentabilidade   
+
+]
+]
+---
+
+## Exercícios Propostos
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+countdown::countdown(10)  # 5 minutes
+```
+
+**Exercício 1: Cálculo de Indicadores**
+
+Uma frota de 10 veículos operou 8.000 horas no último trimestre. Houve 6 falhas, com tempos de reparo de 4h, 6h, 3h, 8h, 5h e 4h. Calcule:
+
+a) MTBF
+b) MTTR
+c) Disponibilidade
+
+---
+
+## Resumo e Principais Lições
+
+.midi[
+.pull-left[
+
+**Conceitos-Chave**
+
+✓ Tipos de manutenção   
+Corretiva, preventiva, preditiva, RCM
+
+✓ Indicadores essenciais   
+MTBF, MTTR, Disponibilidade
+
+✓ Ferramentas de gestão   
+CMMS, IoT, análise de dados
+
+]
+
+.pull-right[
+
+**Lições Aprendidas**
+
+📌 Planejamento é fundamental   
+Reduz custos e imprevistos
+
+📌 Dados são estratégicos   
+Decisões baseadas em evidências
+
+📌 Tecnologia é aliada   
+Automação e predição
+
+📌 Melhoria contínua   
+PDCA e benchmarking
+
+📌 Visão sistêmica   
+Integração com operação
+
+]]
+
+---
+
+## Referências Bibliográficas
+.small[
+KARDEC, A.; NASCIF, J. Manutenção: Função Estratégica. 4ª ed. Rio de Janeiro: Qualitymark, 2019.
+FOGLIATTO, F. S.; RIBEIRO, J. L. D. Confiabilidade e Manutenção Industrial. Rio de Janeiro: Elsevier, 2009.
+XENOS, H. G. P. Gerenciando a Manutenção Produtiva. 2ª ed. Nova Lima: Falconi, 2014.
+LAFRAIA, J. R. B. Manual de Confiabilidade, Mantenabilidade e Disponibilidade. Rio de Janeiro: Qualitymark, 2001.
+MOUBRAY, J. Reliability-Centered Maintenance. 2nd ed. New York: Industrial Press, 1997.
+Normas Técnicas
+ABNT NBR 5462:1994 - Confiabilidade e Mantenabilidade
+ABNT NBR 15842:2010 - Qualidade de Serviço para Pequeno Comércio
+ISO 55000:2014 - Asset Management
+SILVA, R. P.; COSTA, A. L. "Análise de confiabilidade em frotas de transporte rodoviário". Revista Gestão & Produção, v. 28, n. 3, 2021.
+OLIVEIRA, M. A.; SANTOS, J. B. "Manutenção preditiva 4.0: aplicações em logística". Journal of Transport Literature, v. 15, n. 2, p. 45-62, 2022.
+FERREIRA, L. C. et al. "Veículos elétricos em frotas comerciais: análise de confiabilidade". Transportes, v. 30, n. 1, 2023.
+Sites e Recursos Online
+ABRAMAN - Associação Brasileira de Manutenção: www.abraman.org.br
+ANTT - Agência Nacional de Transportes Terrestres: www.antt.gov.br
+Portal da Manutenção: www.manutencao.net
+]
+---
+
+## 
+class: center, middle, inverse
+
+Obrigado!
+Dúvidas?
+
+
+---
+
+
+
+
+
