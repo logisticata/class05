@@ -7,7 +7,7 @@ encoding: UTF-8
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "xaringan-themer.css"]
+    css: ["default", "xaringan-themer.css", "ufcimg-slides.css"]
 
     nature:
       ratio: "16:9"
@@ -19,10 +19,9 @@ output:
            <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
            </div>
          </div>
-
 ---
 
-```{R child = "setup.Rmd"}
+```{r child = "setup.Rmd"}
 ```
 
 ```{r xaringan-tile-view, echo=FALSE}
@@ -188,7 +187,7 @@ kable(tipos_manutencao,
 
 ## Evolução das Estratégias de Manutenção
 
-```{R echo=FALSE, Fig.Height=15}
+```{r echo=FALSE, fig.height=15}
   
 evolucao <- data.frame(
   Geracao = factor(c("1ª Geração\n(até 1945)",
@@ -298,7 +297,7 @@ Necessidade de substituições
 
 ### Principais Métricas
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 kpis <- data.frame(
   Indicador = c("MTBF", "MTTR", "Disponibilidade", "Taxa de Falhas", "Custo por km"),
@@ -334,7 +333,7 @@ Importância: Esses indicadores permitem avaliar objetivamente o desempenho da f
 ### Estrutura de um Programa Eficaz
 
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
   
 programa <- data.frame(
   Periodicidade = c("Diária", "Semanal", "Mensal", "Trimestral", "Semestral", "Anual"),
@@ -408,7 +407,7 @@ Descargas elétricas
 
 Situação: Uma empresa de transporte possui um caminhão que apresentou as seguintes falhas no último ano:
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
   
 dados_falhas <- data.frame(
   Falha = 1:5,
@@ -442,7 +441,7 @@ Quilometragem total rodada: 120.000 km
 
 $$𝑀𝑇𝐵𝐹=Tempo\; Total\; de\; Operação/Número\; de\; Falhas$$
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Dados
 tempo_operacao <- c(720, 1440, 1800, 2160, 2040)
 tempo_total <- sum(tempo_operacao)
@@ -468,7 +467,7 @@ Interpretação:  Em média, o caminhão opera 1.632 horas entre uma falha e out
 
 $$𝑀𝑇𝑇𝑅=Tempo\; Total\; de\; Reparo/Número\; de\; Reparos$$
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Dados
 tempo_reparo <- c(8, 4, 6, 12, 5)
 tempo_total_reparo <- sum(tempo_reparo)
@@ -494,7 +493,7 @@ Interpretação: Em média, cada reparo leva 7 horas para ser concluído.
 
 $$Disponibilidade=𝑀𝑇𝐵𝐹/(𝑀𝑇𝐵𝐹+𝑀𝑇𝑇𝑅)$$
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
   
 # Cálculo da Disponibilidade
 Disponibilidade <- (MTBF / (MTBF + MTTR)) * 100
@@ -517,11 +516,7 @@ Interpretação: O veículo está disponível para operação 99,57% do tempo.
 
 $$Percentual\; tempo\; parado=tempo\; total\; reparo\;/(horas\; no\; ano)$$
 
-```{r echo=FALSE}
-
-tempo_parado_ano <- (tempo_total_reparo / 8760) * 100
-cat("Tempo parado:", round(tempo_parado_ano, 2), "% do ano")
-```
+**Tempo parado:** 0,40% do ano
 
 
 **4. Custo por Quilômetro**
@@ -553,7 +548,7 @@ cat("Custo/km = R$",
 
 **4. Análise de Resultados**
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 resultados <- data.frame(
   Indicador = c("MTBF", "MTTR", "Disponibilidade", "Custo/km", "Taxa de Falhas"),
@@ -647,7 +642,7 @@ $$tempo\;total\;parada = tempo\;parada\;revisoes + tempo\;parada\;falhas$$
 
 ### Cálculo de Custos - Estratégia A (Preventiva)
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 # Dados da Estratégia A
 veiculos <- 20
 revisoes_ano <- 3
@@ -682,7 +677,7 @@ cat("TEMPO TOTAL DE PARADA:", tempo_total_parada_A, "horas/ano\n")
 
 ### Cálculo de Custos - Estratégia B (Corretiva)
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 
 # Dados da Estratégia B
@@ -713,7 +708,7 @@ cat("TEMPO TOTAL DE PARADA:", tempo_total_parada_B, "horas/ano\n")
 ## EXEMPLO RESOLVIDO 2 (continuação)
 ### Comparação e Análise de Decisão
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 comparacao <- data.frame(
   Aspecto = c("Custo Anual Total", "Custo por Veículo", "Tempo de Parada Total", 
               "Tempo de Parada por Veículo", "Disponibilidade da Frota"),
@@ -753,7 +748,7 @@ kable(comparacao, format = "html", escape = FALSE,
 
 ## EXEMPLO RESOLVIDO 2 (continuação)
 ### Análise Gráfica da Comparação
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 
 
 # Criar dados para visualização
@@ -817,7 +812,7 @@ Análise comparativa
 
 ## Ferramentas de Apoio à Gestão (continuação)
 Integração com IoT e Telemetria
-```{R echo=FALSE, Fig.Height=5.5}
+```{r echo=FALSE, fig.height=5.5}
   
 # Simulação de dados de telemetria
 set.seed(456)

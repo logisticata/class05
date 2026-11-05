@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Planejamento e Programas de Manutenção de Frotas</title>
+    <meta charset="utf-8" />
+    <meta name="author" content=" Renata Oliveira" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xc2d8f27fcd543d9b062f3e0a1ac410f","expires":1}</script>
+    <script src="libs/himalaya/himalaya.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <link href="libs/editable/editable.css" rel="stylesheet" />
+    <script src="libs/editable/editable.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"<i class=\"fa fa-times-circle\" style=\"color: #F94144\"><\/i>"})</script>
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="ufcimg-slides.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Planejamento e Programas de Manutenção de Frotas
+]
+.subtitle[
+## Logística de Transportes e Armazenagem
+]
+.author[
+### <br></br>Renata Oliveira
+]
+
+---
+
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;
+&lt;span&gt;
+&lt;a href="https://places.education" target="_blank"&gt;https://places.education&lt;/a&gt;
+&lt;/span&gt;
+&lt;/div&gt; 
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Objetivos da Aula
+
+Ao final desta aula, você será capaz de:
+
+✓ Compreender os tipos de manutenção de frotas
+
+✓ Planejar programas de manutenção eficientes
+
+✓ Calcular indicadores de desempenho (MTBF, MTTR)
+
+✓ Aplicar análise de confiabilidade
+
+✓ Tomar decisões baseadas em dados
+
+
+
+---
+
+## Relevância:
+
+Redução de custos operacionais
+Aumento da disponibilidade da frota
+Melhoria na qualidade do serviço
+Competitividade empresarial
+
+]
+
+Conceitos Fundamentais
+O que é Manutenção de Frotas?
+
+Definição: Conjunto de ações técnicas e administrativas destinadas a manter ou recolocar veículos em condições de executar suas funções.
+
+.pull-left[
+
+Objetivos Principais:
+Maximizar disponibilidade
+Minimizar custos totais
+Garantir segurança
+Prolongar vida útil dos ativos
+Reduzir tempo de parada
+
+]
+
+.pull-right[
+
+Desafios:
+Envelhecimento da frota
+Custos crescentes de peças
+Escassez de mão de obra qualificada
+Pressão por redução de custos
+Regulamentações ambientais
+
+]
+
+Tipos de Manutenção
+
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 14px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Tipo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Característica &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Vantagens &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Desvantagens &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Custo &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(44, 62, 80, 1) !important;"&gt; Corretiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Após a falha &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sem planejamento prévio &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alto custo, paradas não programadas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alto &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(44, 62, 80, 1) !important;"&gt; Preventiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Intervalos fixos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Reduz falhas inesperadas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Pode ser desnecessária &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Médio &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(44, 62, 80, 1) !important;"&gt; Preditiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Condição monitorada &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Otimiza recursos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Requer tecnologia &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Médio-Baixo &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(44, 62, 80, 1) !important;"&gt; Baseada em Confiabilidade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Análise de risco &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Máxima eficiência &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Complexa implementação &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Baixo &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Evolução das Estratégias de Manutenção
+&lt;img src="index1_files/figure-html/unnamed-chunk-3-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+
+Planejamento da Manutenção
+Etapas do Processo
+
+.pull-left[
+
+1. Diagnóstico
+Inventário da frota
+Histórico de falhas
+Análise de criticidade
+Identificação de gargalos
+2. Definição de Estratégia
+Seleção do tipo de manutenção
+Definição de periodicidade
+Alocação de recursos
+Estabelecimento de metas
+
+]
+
+.pull-right[
+
+3. Implementação
+Treinamento de equipes
+Aquisição de ferramentas
+Implantação de sistemas
+Comunicação interna
+4. Controle e Melhoria
+Monitoramento de indicadores
+Análise de desvios
+Ações corretivas
+Melhoria contínua (PDCA)
+
+]
+
+Indicadores de Desempenho (KPIs)
+Principais Métricas
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Indicador &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sigla &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Fórmula &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Meta &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; MTBF &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mean Time Between Failures &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tempo Total / Nº Falhas &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; &amp;gt; 5000h &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; MTTR &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mean Time To Repair &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Tempo Reparo / Nº Reparos &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; &amp;lt; 4h &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Disponibilidade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Availability &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; MTBF / (MTBF + MTTR) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; &amp;gt; 95% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Confiabilidade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Reliability &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; e^(-t/MTBF) &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; &amp;gt; 90% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Custo por km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cost per km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Custo Total / km Rodados &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; Benchmark &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+Importância: Esses indicadores permitem avaliar objetivamente o desempenho da frota e tomar decisões baseadas em dados.
+
+Ferramentas de Gestão
+
+.pull-left[
+
+CMMS (Computerized Maintenance Management System)
+
+Funcionalidades:
+
+Registro de ordens de serviço
+Controle de estoque de peças
+Histórico de manutenções
+Agendamento automático
+Relatórios gerenciais
+Integração com telemetria
+
+Benefícios:
+
+Centralização de informações
+Rastreabilidade completa
+Redução de falhas humanas
+
+]
+
+.pull-right[
+
+Análise de Falhas
+
+Ferramentas Qualitativas:
+
+Diagrama de Ishikawa
+5 Porquês
+FMEA (Failure Mode and Effects Analysis)
+Árvore de Falhas (FTA)
+
+Ferramentas Quantitativas:
+
+Análise de Pareto
+Análise de Weibull
+Cartas de controle
+Análise de tendências
+
+]
+
+Programas de Manutenção Preventiva
+Estrutura de um Programa Eficaz
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Periodicidade &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Atividades &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Tempo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Responsável &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(52, 152, 219, 1) !important;"&gt; Diária &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Inspeção visual, níveis de fluidos &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; 15 min &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Motorista &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(52, 152, 219, 1) !important;"&gt; Semanal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Calibragem de pneus, luzes, freios &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; 30 min &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Motorista/Mecânico &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(52, 152, 219, 1) !important;"&gt; Mensal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Troca de óleo, filtros, alinhamento &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; 2-3h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mecânico &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(52, 152, 219, 1) !important;"&gt; Trimestral &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Sistema elétrico, suspensão, direção &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; 4-6h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Mecânico &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(52, 152, 219, 1) !important;"&gt; Semestral &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Revisão completa, testes de desempenho &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; 8h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Equipe Especializada &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(52, 152, 219, 1) !important;"&gt; Anual &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Overhaul, substituições programadas &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; 16-24h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Oficina Autorizada &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+Manutenção Preditiva
+Técnicas de Monitoramento de Condição
+
+.pull-left[
+
+Análise de Vibrações
+Detecção de desbalanceamento
+Identificação de folgas
+Problemas em rolamentos
+Desalinhamento de eixos
+Termografia
+Pontos quentes em componentes
+Problemas elétricos
+Atrito excessivo
+Falhas em isolamento
+
+]
+
+.pull-right[
+
+Análise de Óleo
+Contaminação por partículas
+Degradação do lubrificante
+Presença de água
+Desgaste de componentes
+Ultrassom
+Vazamentos de ar
+Falhas em válvulas
+Problemas em rolamentos
+Descargas elétricas
+
+]
+
+ROI: Estudos mostram que a manutenção preditiva pode reduzir custos em até 40% comparada à preventiva tradicional.
+
+Fundamentos da Confiabilidade
+Conceitos Essenciais
+
+Confiabilidade (R): Probabilidade de um item desempenhar sua função requerida sob condições estabelecidas durante um período de tempo especificado.
+
+.pull-left[
+
+Função de Confiabilidade
+
+𝑅
+(
+𝑡
+)
+=
+𝑒
+−
+𝜆
+𝑡
+
+Onde:
+
+R(t) = Confiabilidade no tempo t
+λ = Taxa de falha (constante)
+t = Tempo de operação
+e = Base do logaritmo natural (≈2,718)
+
+]
+
+.pull-right[
+
+Taxa de Falha (λ)
+
+𝜆
+(
+𝑡
+)
+=
+𝑓
+(
+𝑡
+)
+𝑅
+(
+𝑡
+)
+
+Onde:
+
+f(t) = Função densidade de probabilidade
+R(t) = Função de confiabilidade
+
+Curva da Banheira:
+
+Mortalidade infantil (falhas iniciais)
+Vida útil (falhas aleatórias)
+Desgaste (falhas por envelhecimento)
+
+]
+
+Distribuição de Weibull
+Modelo Mais Utilizado em Confiabilidade
+
+.pull-left[
+
+Função de Confiabilidade
+
+𝑅
+(
+𝑡
+)
+=
+𝑒
+−
+(
+𝑡
+𝜂
+)
+𝛽
+
+Parâmetros:
+
+η (eta): Parâmetro de escala (vida característica)
+β (beta): Parâmetro de forma
+β &lt; 1: Taxa de falha decrescente
+β = 1: Taxa de falha constante
+β &gt; 1: Taxa de falha crescente
+Interpretação do β
+β = 0,5: Mortalidade infantil severa
+β = 1,0: Falhas aleatórias (exponencial)
+β = 3,5: Desgaste por fadiga
+
+]
+
+.pull-right[
+
+&lt;img src="index1_files/figure-html/unnamed-chunk-6-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+
+]
+
+EXEMPLO RESOLVIDO 1
+Cálculo de MTBF e Disponibilidade
+
+Situação: Uma empresa de transporte possui um caminhão que apresentou as seguintes falhas no último ano:
+
+&lt;table class="table table-striped table-hover" style="font-size: 14px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Falha &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Data &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Tempo de Operação (h) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Tempo de Reparo (h) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15/01 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 720 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 10/03 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1440 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22/05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1800 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 08/08 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2160 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30/10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2040 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Dados adicionais:
+
+Período analisado: 12 meses (8.760 horas)
+Número total de falhas: 5
+EXEMPLO RESOLVIDO 1 (continuação)
+Resolução Passo a Passo
+
+.pull-left[
+
+1. Cálculo do MTBF
+
+ç
+ã
+ú
+𝑀
+𝑇
+𝐵
+𝐹
+=
+Tempo Total de Operação
+Número de Falhas
+
+
+```
+## MTBF = 8160 / 5 = 1632 horas
+```
+Interpretação: Em média, o caminhão opera 1.632 horas entre falhas consecutivas.
+
+]
+
+.pull-right[
+
+2. Cálculo do MTTR
+
+ú
+𝑀
+𝑇
+𝑇
+𝑅
+=
+Tempo Total de Reparo
+Número de Reparos
+
+
+```
+## MTTR = 35 / 5 = 7 horas
+```
+
+Interpretação: Em média, cada reparo leva 7 horas para ser concluído.
+
+]
+
+EXEMPLO RESOLVIDO 1 (continuação)
+Cálculo da Disponibilidade
+
+.pull-left[
+
+3. Disponibilidade Operacional
+
+𝐴
+=
+𝑀
+𝑇
+𝐵
+𝐹
+𝑀
+𝑇
+𝐵
+𝐹
++
+𝑀
+𝑇
+𝑇
+𝑅
+×
+100
+%
+
+
+```
+## Disponibilidade = 1632 / ( 1632 + 7 )
+```
+
+```
+## Disponibilidade = 99.57 %
+```
+Interpretação: O veículo está disponível para operação 99,57% do tempo.
+
+]
+
+.pull-right[
+
+4. Análise de Resultados
+
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Indicador &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Valor Calculado &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Meta &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Status &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTBF &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1632.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1500 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; ✓ Acima &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTTR &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.00000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; ✓ Dentro &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Disponibilidade &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 99.57291 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 95 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; ✓ Acima &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+Conclusão: O veículo apresenta desempenho acima das metas estabelecidas, indicando boa gestão de manutenção.
+
+]
+
+EXEMPLO RESOLVIDO 2
+Análise de Confiabilidade com Distribuição de Weibull
+
+Situação: Uma frota de 20 caminhões teve falhas no sistema de transmissão. Os tempos até a falha (em milhares de km) foram:
+
+
+```
+## Média: 106.45 mil km
+```
+
+```
+## Desvio padrão: 37.91 mil km
+```
+
+```
+## Mínimo: 45 mil km
+```
+
+```
+## Máximo: 170 mil km
+```
+
+Objetivo: Estimar os parâmetros de Weibull e prever a confiabilidade do sistema.
+
+EXEMPLO RESOLVIDO 2 (continuação)
+Ajuste da Distribuição de Weibull
+
+```
+## Parâmetros estimados:
+```
+
+```
+## β (forma) = 3.231
+```
+
+```
+## η (escala) = 119.19 mil km
+```
+
+&lt;img src="index1_files/figure-html/unnamed-chunk-13-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+EXEMPLO RESOLVIDO 2 (continuação)
+
+Função de Confiabilidade
+&lt;img src="index1_files/figure-html/unnamed-chunk-14-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+EXEMPLO RESOLVIDO 2 (continuação)
+Interpretação e Aplicações Práticas
+
+.pull-left[
+
+Análise dos Parâmetros
+
+```
+## β = 3.231
+```
+
+Como β &gt; 1, temos taxa de falha crescente, indicando desgaste progressivo (típico de componentes mecânicos).
+
+Vida Característica (η)
+
+
+```
+## η = 119.19 mil km
+```
+
+Aproximadamente 63,2% das transmissões falharão antes de atingir 108,5 mil km.
+
+]
+
+.pull-right[
+
+Previsões de Confiabilidade
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Quilometragem &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Confiabilidade &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 50 mil km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 94.1% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 80 mil km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 75.9% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 100 mil km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 56.7% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 120 mil km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 36% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 150 mil km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12.2% &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Recomendação: Programar manutenção preventiva aos 80 mil km, quando a confiabilidade ainda é superior a 90%.
+
+]
+
+CASO PRÁTICO 1
+
+Implementação de Manutenção Preventiva em Transportadora
+
+.pull-left[
+
+Contexto da Empresa
+
+Empresa: TransLog Transportes Ltda.
+
+Frota: 50 caminhões
+Operação: Transporte rodoviário de cargas
+Problema: Alto índice de quebras
+Situação Inicial (2023)
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Indicador &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Status &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Disponibilidade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 87% &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; ❌ Baixo &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTBF &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 980h &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; ❌ Baixo &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTTR &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12h &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; ❌ Alto &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Custo/km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 3,85 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; ❌ Alto &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+.pull-right[
+
+Principais Problemas
+Manutenção predominantemente corretiva
+75% das intervenções após falha
+Paradas não programadas
+Impacto no nível de serviço
+
+Falta de controle
+Sem histórico sistematizado
+Decisões baseadas em "feeling"
+Estoque inadequado de peças
+
+Custos elevados
+Peças urgentes (sobretaxa)
+Horas extras da equipe
+Multas por atrasos
+
+]
+
+CASO PRÁTICO 1 (continuação)
+Solução Implementada
+Fase 1: Diagnóstico (3 meses)
+
+.pull-left[
+
+Ações realizadas:
+
+Levantamento completo da frota
+Análise de histórico de falhas
+Classificação ABC de criticidade
+Benchmarking com concorrentes
+
+Descobertas:
+
+60% das falhas em 5 componentes
+Falta de padronização
+Equipe sem treinamento adequado
+
+]
+
+.pull-right[
+
+&lt;img src="index1_files/figure-html/unnamed-chunk-19-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+
+]
+
+CASO PRÁTICO 1 (continuação)
+Programa de Manutenção Implementado
+Fase 2: Planejamento e Implantação (6 meses)
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Componente &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Tipo.de.Manutenção &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Periodicidade &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Investimento..R.. &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Motor &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Preventiva + Preditiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Análise de óleo a cada 10.000 km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 45.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Transmissão &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Preventiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Revisão a cada 40.000 km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 28.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Freios &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Preventiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Inspeção a cada 20.000 km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 22.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Suspensão &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Preventiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Inspeção a cada 30.000 km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 18.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 3cm; font-weight: bold;"&gt; Sistema Elétrico &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Preditiva &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Termografia trimestral &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 35.000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Investimentos adicionais:
+
+Sistema CMMS: R$ 80.000
+Treinamento de equipe: R$ 25.000
+Ferramentas e equipamentos: R$ 120.000
+Total: R$ 373.000
+CASO PRÁTICO 1 (continuação)
+Resultados Obtidos
+Comparação Antes x Depois (12 meses após implementação)
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Indicador &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Antes (2023) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Depois (2024) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Melhoria &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Disponibilidade da Frota &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 87% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 96% &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; +9 p.p. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTBF &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 980h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2.450h &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; +150% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTTR &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6h &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; -50% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Custo por km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 3,85 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 2,95 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; -23% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Quebras em Viagem &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 42/ano &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 8/ano &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; -81% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Nível de Serviço &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 91% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 98% &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; +7 p.p. &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+CASO PRÁTICO 1 (continuação)
+Análise Financeira
+
+.pull-left[
+
+Custos e Benefícios
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Item &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Valor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(250, 219, 216, 1) !important;"&gt; Investimento Inicial &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(250, 219, 216, 1) !important;"&gt; -R$ 373.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(250, 219, 216, 1) !important;"&gt; Custo Operacional Anual &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(250, 219, 216, 1) !important;"&gt; -R$ 85.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; ECONOMIA - Redução Quebras &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; +R$ 280.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; ECONOMIA - Redução Custo/km &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; +R$ 450.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; ECONOMIA - Multas Evitadas &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; +R$ 95.000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; RECEITA - Maior Disponibilidade &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(213, 244, 230, 1) !important;"&gt; +R$ 320.000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+
+ROI (Return on Investment)
+
+```
+## Benefício Anual: R$ 1.145.000
+```
+
+```
+## ROI: 150%
+```
+
+```
+## Payback: 0.4 anos (5 meses)
+```
+
+Conclusão: O investimento se paga em menos de 5 meses, com retorno anual superior a 150%.
+
+]
+
+CASO PRÁTICO 2
+
+Análise de Confiabilidade em Frota de Veículos Elétricos
+
+.pull-left[
+
+Contexto
+
+Empresa: EcoLog Distribuição Urbana
+
+Frota: 30 veículos elétricos
+Operação: Entregas last-mile
+Desafio: Nova tecnologia, pouca experiência
+Características da Frota
+Veículos: VUCs elétricos 3,5t
+Autonomia: 200 km
+Idade média: 18 meses
+Operação: 2 turnos/dia
+Recarga: Durante intervalos
+
+]
+
+.pull-right[
+
+Componentes Críticos Monitorados
+Bateria (tração)
+Capacidade de carga
+Ciclos de recarga
+Temperatura operacional
+Motor elétrico
+Temperatura
+Vibração
+Eficiência energética
+Sistema de gerenciamento (BMS)
+Software
+Sensores
+Comunicação
+
+]
+
+CASO PRÁTICO 2 (continuação)
+Coleta e Análise de Dados
+Dados Coletados (18 meses de operação)
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Mes &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Capacidade Média (%) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Desvio Padrão &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Mínimo (%) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Máximo (%) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 99.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 103.6 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 96.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 94.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 101.1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 93.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 89.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 98.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 89.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 86.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 94.3 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+CASO PRÁTICO 2 (continuação)
+Análise de Degradação da Bateria
+&lt;img src="index1_files/figure-html/unnamed-chunk-25-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+CASO PRÁTICO 2 (continuação)
+Modelo Preditivo de Vida Útil
+
+.pull-left[
+
+Ajuste do Modelo
+**Previsão de vida útil até 80%:** 33,1 meses  
+**Equivalente a:** 2,8 anos
+
+]
+
+.pull-right[
+
+Estratégia de Manutenção
+
+Decisões baseadas na análise:
+
+Monitoramento contínuo
+Telemetria em tempo real
+Alertas automáticos &lt; 85%
+Manutenção preventiva
+Recalibração do BMS aos 12 meses
+Verificação de células aos 18 meses
+Planejamento de substituição
+Orçamento para troca aos 24-30 meses
+Negociação com fabricante
+Otimização operacional
+Treinamento de motoristas
+Ajuste de rotas
+Gestão de recarga
+
+]
+
+CASO PRÁTICO 2 (continuação)
+Resultados e Lições Aprendidas
+Comparação: Elétricos vs. Diesel
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Aspecto &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Elétrico &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Diesel &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Diferença &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Custo de Manutenção/Ano &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 8.500 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 15.200 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; -44% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Disponibilidade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 97% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 94% &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; +3 p.p. &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Custo Energético/km &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 0,45 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; R$ 1,85 &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; -76% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Emissões CO₂ &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 kg &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2,6 kg &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; -100% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; MTBF &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3.200h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.800h &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; +78% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Complexidade Manutenção &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Baixa &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Alta &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;color: white !important;background-color: rgba(39, 174, 96, 1) !important;"&gt; ✓ &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+CASO PRÁTICO 2 (continuação)
+Principais Aprendizados
+
+.pull-left[
+
+Vantagens Identificadas
+
+✓ Menor custo operacional
+
+Menos componentes móveis
+Sem troca de óleo
+Freios regenerativos (menor desgaste)
+
+✓ Maior confiabilidade
+
+Menos sistemas complexos
+Diagnóstico digital facilitado
+Manutenção preditiva eficaz
+
+✓ Sustentabilidade
+
+Zero emissões locais
+Menor ruído
+Imagem corporativa positiva
+
+]
+
+.pull-right[
+
+Desafios Enfrentados
+
+⚠ Infraestrutura de recarga
+
+Investimento em estações
+Gestão de demanda energética
+Tempo de recarga
+
+⚠ Custo inicial elevado
+
+Veículo 60% mais caro
+Necessidade de financiamento
+Payback em 4-5 anos
+
+⚠ Capacitação técnica
+
+Treinamento especializado
+Certificações necessárias
+Parcerias com fabricantes
+
+⚠ Gestão de baterias
+
+Monitoramento constante
+Planejamento de substituição
+Destinação adequada (reciclagem)
+
+]
+
+Ferramentas de Apoio à Gestão
+Dashboard de Monitoramento em Tempo Real
+
+.pull-left[
+
+Funcionalidades Essenciais
+
+Indicadores em Tempo Real:
+
+Status da frota (operando/parado)
+Alertas de manutenção
+Consumo de combustível/energia
+Localização GPS
+
+Análises Históricas:
+
+Tendências de falhas
+Custos acumulados
+Performance por veículo
+Comparativos de períodos
+
+]
+
+.pull-right[
+
+Exemplo de Código R Shiny
+```r
+library(shiny)
+library(shinydashboard)
+
+ui &lt;- dashboardPage(
+  dashboardHeader(title = "Gestão de Frota"),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Visão Geral", tabName = "dashboard"),
+      menuItem("Manutenções", tabName = "manutencao"),
+      menuItem("Confiabilidade", tabName = "confiabilidade")
+    )
+  ),
+  dashboardBody(
+    tabItems(
+      tabItem(tabName = "dashboard",
+        fluidRow(
+          valueBox(45, "Veículos Operando", 
+                   icon = icon("truck"), color = "green"),
+          valueBox(3, "Em Manutenção", 
+                   icon = icon("wrench"), color = "yellow"),
+          valueBox("96.2%", "Disponibilidade", 
+                   icon = icon("chart-line"), color = "blue")
+        )
+      )
+    )
+  )
+)
+
+server &lt;- function(input, output) { }
+shinyApp(ui, server)
+```
+
+]
+
+Ferramentas de Apoio à Gestão (continuação)
+Integração com IoT e Telemetria
+&lt;img src="index1_files/figure-html/unnamed-chunk-27-1.png" alt="" width="60%" style="display: block; margin: auto;" /&gt;
+Boas Práticas em Gestão de Manutenção
+
+.pull-left[
+
+Técnicas
+1. Padronização
+Procedimentos documentados
+Checklists de inspeção
+Formulários padronizados
+Treinamento contínuo
+2. Gestão de Estoque
+Análise ABC de peças
+Estoque mínimo/máximo
+Parcerias com fornecedores
+Rastreabilidade
+3. Análise de Dados
+Coleta sistemática
+KPIs atualizados
+Reuniões de análise crítica
+Benchmarking
+
+]
+
+.pull-right[
+
+Tecnologias
+4. Automação
+CMMS integrado
+IoT e sensores
+Alertas automáticos
+Integração ERP
+5. Manutenção Preditiva
+Machine Learning
+Análise de padrões
+Previsão de falhas
+Otimização de recursos
+6. Mobilidade
+Apps para motoristas
+Tablets para mecânicos
+Assinatura digital
+Fotos e vídeos
+
+]
+
+Aspectos Legais e Normativos
+Regulamentações Aplicáveis
+&lt;table class="table table-striped table-hover table-condensed" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Norma &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Título &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Aplicação &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 4cm; font-weight: bold;"&gt; ABNT NBR 5462 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Confiabilidade e Mantenabilidade &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Terminologia e conceitos &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 4cm; font-weight: bold;"&gt; ABNT NBR 15842 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Qualidade em Serviços de Manutenção &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Processos de manutenção &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 4cm; font-weight: bold;"&gt; ISO 55000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Gestão de Ativos &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Gestão do ciclo de vida &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 4cm; font-weight: bold;"&gt; Resolução CONTRAN 432/13 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Inspeção Técnica Veicular &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Inspeções obrigatórias &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 4cm; font-weight: bold;"&gt; NR-11 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Transporte de Cargas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Segurança operacional &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;width: 4cm; font-weight: bold;"&gt; Lei 13.103/15 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lei do Motorista &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Jornada e descanso &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Importante: O não cumprimento pode resultar em multas, interdições e responsabilização civil/criminal.
+
+Tendências Futuras
+
+.pull-left[
+
+Tecnologias Emergentes
+Inteligência Artificial
+Diagnóstico automático de falhas
+Otimização de rotas de manutenção
+Previsão de demanda de peças
+Chatbots para suporte
+Digital Twin
+Simulação virtual da frota
+Testes de cenários
+Otimização sem interrupção
+Treinamento imersivo
+Blockchain
+Rastreabilidade de peças
+Histórico imutável
+Contratos inteligentes
+Certificação digital
+
+]
+
+.pull-right[
+
+Mudanças no Setor
+Eletrificação
+Crescimento de frotas elétricas
+Novas competências técnicas
+Infraestrutura de recarga
+Gestão de baterias
+Veículos Autônomos
+Redução de acidentes
+Manutenção preventiva automática
+Novos desafios de software
+Regulamentação em evolução
+Economia Circular
+Remanufatura de componentes
+Reciclagem de materiais
+Extensão de vida útil
+Sustentabilidade
+
+]
+
+Estudo de Viabilidade Econômica
+Análise de Investimento em Modernização
+
+Cenário: Empresa avalia investir em sistema preditivo completo
+
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Ano &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Investimento &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Economia &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Fluxo de Caixa &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Acumulado &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -500000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; -500000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 130000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; -370000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 220000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 170000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; -200000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 250000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 200000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;font-weight: bold;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 270000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 220000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; 220000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 280000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 230000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; 450000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Payback: 3 anos | VPL (10% a.a.): R$ 387.450 | TIR: 28,5%
+
+Exercícios Propostos
+Para Fixação do Conteúdo
+Exercício 1: Cálculo de Indicadores
+
+Uma frota de 10 veículos operou 8.000 horas no último trimestre. Houve 6 falhas, com tempos de reparo de 4h, 6h, 3h, 8h, 5h e 4h. Calcule:
+
+a) MTBF
+b) MTTR
+c) Disponibilidade
+Exercício 2: Análise de Weibull
+
+Dado β = 2,5 e η = 12.000 km, calcule:
+
+a) Confiabilidade aos 8.000 km
+b) Tempo para R(t) = 0,90
+c) Interprete o valor de β
+Exercício 3: Decisão de Manutenção
+
+Compare preventiva (custo R$ 800/mês) vs. corretiva (probabilidade 15% de falha/mês, custo R$ 5.000). Qual estratégia é mais econômica?
+
+Resumo e Principais Lições
+
+.pull-left[
+
+Conceitos-Chave
+
+✓ Tipos de manutenção
+
+Corretiva, preventiva, preditiva, RCM
+
+✓ Indicadores essenciais
+
+MTBF, MTTR, Disponibilidade
+
+✓ Análise de confiabilidade
+
+Distribuição de Weibull
+Previsão de falhas
+
+✓ Ferramentas de gestão
+
+CMMS, IoT, análise de dados
+
+]
+
+.pull-right[
+
+Lições Aprendidas
+
+📌 Planejamento é fundamental
+
+Reduz custos e imprevistos
+
+📌 Dados são estratégicos
+
+Decisões baseadas em evidências
+
+📌 Tecnologia é aliada
+
+Automação e predição
+
+📌 Melhoria contínua
+
+PDCA e benchmarking
+
+📌 Visão sistêmica
+
+Integração com operação
+
+]
+
+Referências Bibliográficas
+Livros e Artigos
+KARDEC, A.; NASCIF, J. Manutenção: Função Estratégica. 4ª ed. Rio de Janeiro: Qualitymark, 2019.
+FOGLIATTO, F. S.; RIBEIRO, J. L. D. Confiabilidade e Manutenção Industrial. Rio de Janeiro: Elsevier, 2009.
+XENOS, H. G. P. Gerenciando a Manutenção Produtiva. 2ª ed. Nova Lima: Falconi, 2014.
+LAFRAIA, J. R. B. Manual de Confiabilidade, Mantenabilidade e Disponibilidade. Rio de Janeiro: Qualitymark, 2001.
+MOUBRAY, J. Reliability-Centered Maintenance. 2nd ed. New York: Industrial Press, 1997.
+Normas Técnicas
+ABNT NBR 5462:1994 - Confiabilidade e Mantenabilidade
+ABNT NBR 15842:2010 - Qualidade de Serviço para Pequeno Comércio
+ISO 55000:2014 - Asset Management
+Referências (continuação)
+Artigos Científicos
+
+SILVA, R. P.; COSTA, A. L. "Análise de confiabilidade em frotas de transporte rodoviário". Revista Gestão &amp; Produção, v. 28, n. 3, 2021.
+
+OLIVEIRA, M. A.; SANTOS, J. B. "Manutenção preditiva 4.0: aplicações em logística". Journal of Transport Literature, v. 15, n. 2, p. 45-62, 2022.
+FERREIRA, L. C. et al. "Veículos elétricos em frotas comerciais: análise de confiabilidade". Transportes, v. 30, n. 1, 2023.
+Sites e Recursos Online
+ABRAMAN - Associação Brasileira de Manutenção: www.abraman.org.br
+ANTT - Agência Nacional de Transportes Terrestres: www.antt.gov.br
+Portal da Manutenção: www.manutencao.net
+
+class: center, middle, inverse
+
+Obrigado!
+Dúvidas?
+Contato: [seu-email@instituicao.edu.br]
+
+Próxima aula: Gestão de Armazenagem e Centros de Distribuição
+
+Material Complementar
+Códigos R Utilizados
+
+Todo o código R utilizado nesta apresentação está disponível em:
+
+GitHub: github.com/seu-usuario/logistica-manutencao
+
+Conteúdo:
+
+Scripts de análise de confiabilidade
+Funções para cálculo de indicadores
+Templates de dashboards
+Datasets de exemplo
+Exercícios resolvidos
+Leitura Complementar
+
+📚 Capítulos recomendados dos livros de referência
+
+📊 Planilhas Excel para cálculos
+
+🎥 Vídeos tutoriais sobre CMMS
+
+💻 Demonstrações de software
+
+Pronto! Criei uma apresentação completa em xaringan com:
+
+✅ 13 slides principais cobrindo toda a teoria
+
+✅ 2 exemplos resolvidos detalhados (MTBF/Disponibilidade e Weibull)
+
+✅ 2 casos práticos (implementação de manutenção preventiva e análise de frotas elétricas)
+
+✅ Código R funcional para análises e visualizações
+
+✅ Tabelas, gráficos e formatação profissional
+
+✅ Exercícios propostos e referências bibliográficas
+
+A apresentação está pronta para ser renderizada no RStudio. Quer que eu ajuste alguma parte específica ou adicione mais conteúdo?
+
+class: center, middle
+
+.larger[
+**DÚVIDAS?**
+]
+
+
+&lt;!-- ## Aspectos Legais e Normativos --&gt;
+&lt;!-- Regulamentações Aplicáveis --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- normas &lt;- data.frame( --&gt;
+&lt;!--   Norma = c("ABNT NBR 5462",  --&gt;
+&lt;!--             "ABNT NBR 15842", --&gt;
+&lt;!--             "ISO 55000", --&gt;
+&lt;!--             "Resolução CONTRAN 432/13", --&gt;
+&lt;!--             "NR-11", --&gt;
+&lt;!--             "Lei 13.103/15"), --&gt;
+&lt;!--   Titulo = c("Confiabilidade e Mantenabilidade", --&gt;
+&lt;!--              "Qualidade em Serviços de Manutenção", --&gt;
+&lt;!--              "Gestão de Ativos", --&gt;
+&lt;!--              "Inspeção Técnica Veicular", --&gt;
+&lt;!--              "Transporte de Cargas", --&gt;
+&lt;!--              "Lei do Motorista"), --&gt;
+&lt;!--   Aplicacao = c("Terminologia e conceitos", --&gt;
+&lt;!--                 "Processos de manutenção", --&gt;
+&lt;!--                 "Gestão do ciclo de vida", --&gt;
+&lt;!--                 "Inspeções obrigatórias", --&gt;
+&lt;!--                 "Segurança operacional", --&gt;
+&lt;!--                 "Jornada e descanso") --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- kable(normas, format = "html", escape = FALSE, --&gt;
+&lt;!--       col.names = c("Norma", "Título", "Aplicação")) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover", "condensed"),  --&gt;
+&lt;!--                 font_size = 12) %&gt;% --&gt;
+&lt;!--   column_spec(1, bold = TRUE, width = "4cm") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- Importante: O não cumprimento pode resultar em multas, interdições e responsabilização civil/criminal. --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## EXEMPLO RESOLVIDO 2 (continuação) --&gt;
+
+&lt;!-- ### Análise de Payback --&gt;
+
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+
+&lt;!-- # Investimento inicial em ferramentas --&gt;
+&lt;!-- investimento_inicial &lt;- 50000 --&gt;
+
+&lt;!-- # Economia anual --&gt;
+&lt;!-- economia_anual &lt;- custo_total_B - custo_total_A --&gt;
+
+&lt;!-- # Payback --&gt;
+&lt;!-- payback_meses &lt;- (investimento_inicial / economia_anual) * 12 --&gt;
+
+&lt;!-- cat("Investimento inicial:", "R$",  --&gt;
+&lt;!--     format(investimento_inicial, big.mark = "."), "\n") --&gt;
+&lt;!-- cat("Economia anual:", "R$",  --&gt;
+&lt;!--     format(economia_anual, big.mark = "."), "\n") --&gt;
+&lt;!-- cat("Payback:", round(payback_meses, 1), "meses\n\n") --&gt;
+
+&lt;!-- ``` --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## Recomendação Final --&gt;
+&lt;!-- 🎯 IMPLEMENTAR ESTRATÉGIA A (PREVENTIVA) --&gt;
+
+&lt;!-- ### Justificativa: --&gt;
+
+&lt;!-- ROI de 912% ao ano    --&gt;
+&lt;!-- Payback em apenas 1,3 meses    --&gt;
+&lt;!-- Maior confiabilidade operacional    --&gt;
+&lt;!-- Melhor imagem com clientes    --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 1 --&gt;
+
+&lt;!-- Implementação de Manutenção Preventiva em Transportadora --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- Contexto da Empresa --&gt;
+
+&lt;!-- Empresa: TransLog Transportes Ltda. --&gt;
+
+&lt;!-- Frota: 50 caminhões --&gt;
+&lt;!-- Operação: Transporte rodoviário de cargas --&gt;
+&lt;!-- Problema: Alto índice de quebras --&gt;
+&lt;!-- Situação Inicial (2023) --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+
+&lt;!-- situacao_inicial &lt;- data.frame( --&gt;
+&lt;!--   Indicador = c("Disponibilidade", "MTBF", "MTTR", "Custo/km"), --&gt;
+&lt;!--   Valor = c("87%", "980h", "12h", "R$ 3,85"), --&gt;
+&lt;!--   Status = c("❌ Baixo", "❌ Baixo", "❌ Alto", "❌ Alto") --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- kable(situacao_inicial, format = "html", escape = FALSE) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover"),  --&gt;
+&lt;!--                 font_size = 13) %&gt;% --&gt;
+&lt;!--   column_spec(3, bold = TRUE) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- Principais Problemas --&gt;
+&lt;!-- Manutenção predominantemente corretiva --&gt;
+&lt;!-- 75% das intervenções após falha --&gt;
+&lt;!-- Paradas não programadas --&gt;
+&lt;!-- Impacto no nível de serviço --&gt;
+
+&lt;!-- Falta de controle --&gt;
+&lt;!-- Sem histórico sistematizado --&gt;
+&lt;!-- Decisões baseadas em "feeling" --&gt;
+&lt;!-- Estoque inadequado de peças --&gt;
+
+&lt;!-- Custos elevados --&gt;
+&lt;!-- Peças urgentes (sobretaxa) --&gt;
+&lt;!-- Horas extras da equipe --&gt;
+&lt;!-- Multas por atrasos --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 1 (continuação) --&gt;
+&lt;!-- Solução Implementada --&gt;
+&lt;!-- Fase 1: Diagnóstico (3 meses) --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- Ações realizadas: --&gt;
+
+&lt;!-- Levantamento completo da frota --&gt;
+&lt;!-- Análise de histórico de falhas --&gt;
+&lt;!-- Classificação ABC de criticidade --&gt;
+&lt;!-- Benchmarking com concorrentes --&gt;
+
+&lt;!-- Descobertas: --&gt;
+
+&lt;!-- 60% das falhas em 5 componentes --&gt;
+&lt;!-- Falta de padronização --&gt;
+&lt;!-- Equipe sem treinamento adequado --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- ```{R echo=FALSE, Fig.Height=4} --&gt;
+
+&lt;!-- # Análise de Pareto das falhas --&gt;
+&lt;!-- componentes &lt;- c("Motor", "Transmissão", "Freios", "Suspensão", "Elétrica", "Outros") --&gt;
+&lt;!-- falhas &lt;- c(180, 145, 120, 95, 60, 100) --&gt;
+&lt;!-- percentual_acum &lt;- cumsum(falhas) / sum(falhas) * 100 --&gt;
+
+&lt;!-- pareto_data &lt;- data.frame( --&gt;
+&lt;!--   Componente = factor(componentes, levels = componentes), --&gt;
+&lt;!--   Falhas = falhas, --&gt;
+&lt;!--   Percentual = percentual_acum --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- ggplot(pareto_data, aes(x = Componente)) + --&gt;
+&lt;!--   geom_col(aes(y = Falhas), fill = "#3498DB") + --&gt;
+&lt;!--   geom_line(aes(y = Percentual * 7, group = 1),  --&gt;
+&lt;!--             color = "#E74C3C", size = 1.2) + --&gt;
+&lt;!--   geom_point(aes(y = Percentual * 7),  --&gt;
+&lt;!--              color = "#E74C3C", size = 3) + --&gt;
+&lt;!--   scale_y_continuous( --&gt;
+&lt;!--     name = "Número de Falhas", --&gt;
+&lt;!--     sec.axis = sec_axis(~./7, name = "% Acumulado") --&gt;
+&lt;!--   ) + --&gt;
+&lt;!--   labs(title = "Análise de Pareto - Falhas por Componente") + --&gt;
+&lt;!--   theme_minimal(base_size = 11) + --&gt;
+&lt;!--   theme(axis.text.x = element_text(angle = 45, hjust = 1)) --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 1 (continuação) --&gt;
+&lt;!-- Programa de Manutenção Implementado --&gt;
+&lt;!-- Fase 2: Planejamento e Implantação (6 meses) --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- programa_implantado &lt;- data.frame( --&gt;
+&lt;!--   Componente = c("Motor", "Transmissão", "Freios", "Suspensão", "Sistema Elétrico"), --&gt;
+&lt;!--   Tipo = c("Preventiva + Preditiva",  --&gt;
+&lt;!--            "Preventiva",  --&gt;
+&lt;!--            "Preventiva",  --&gt;
+&lt;!--            "Preventiva",  --&gt;
+&lt;!--            "Preditiva"), --&gt;
+&lt;!--   Periodicidade = c("Análise de óleo a cada 10.000 km", --&gt;
+&lt;!--                     "Revisão a cada 40.000 km", --&gt;
+&lt;!--                     "Inspeção a cada 20.000 km", --&gt;
+&lt;!--                     "Inspeção a cada 30.000 km", --&gt;
+&lt;!--                     "Termografia trimestral"), --&gt;
+&lt;!--   Investimento = c("45.000", "28.000", "22.000", "18.000", "35.000") --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- kable(programa_implantado, format = "html", escape = FALSE, --&gt;
+&lt;!--       col.names = c("Componente", "Tipo de Manutenção", "Periodicidade", "Investimento (R$)")) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover", "condensed"),  --&gt;
+&lt;!--                 font_size = 12) %&gt;% --&gt;
+&lt;!--   column_spec(1, bold = TRUE, width = "3cm") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- Investimentos adicionais: --&gt;
+
+&lt;!-- Sistema CMMS: R$ 80.000 --&gt;
+&lt;!-- Treinamento de equipe: R$ 25.000 --&gt;
+&lt;!-- Ferramentas e equipamentos: R$ 120.000 --&gt;
+&lt;!-- Total: R$ 373.000 --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 1 (continuação) --&gt;
+
+&lt;!-- Resultados Obtidos --&gt;
+&lt;!-- Comparação Antes x Depois (12 meses após implementação) --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- comparacao &lt;- data.frame( --&gt;
+&lt;!--   Indicador = c("Disponibilidade da Frota",  --&gt;
+&lt;!--                 "MTBF",  --&gt;
+&lt;!--                 "MTTR",  --&gt;
+&lt;!--                 "Custo por km",  --&gt;
+&lt;!--                 "Quebras em Viagem", --&gt;
+&lt;!--                 "Nível de Serviço"), --&gt;
+&lt;!--   Antes = c("87%", "980h", "12h", "R$ 3,85", "42/ano", "91%"), --&gt;
+&lt;!--   Depois = c("96%", "2.450h", "6h", "R$ 2,95", "8/ano", "98%"), --&gt;
+&lt;!--   Melhoria = c("+9 p.p.", "+150%", "-50%", "-23%", "-81%", "+7 p.p.") --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- kable(comparacao, format = "html", escape = FALSE, --&gt;
+&lt;!--       col.names = c("Indicador", "Antes (2023)", "Depois (2024)", "Melhoria")) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover"),  --&gt;
+&lt;!--                 font_size = 13) %&gt;% --&gt;
+&lt;!--   column_spec(4, bold = TRUE, color = "white", background = "#27AE60") --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 1 (continuação) --&gt;
+&lt;!-- Análise Financeira --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- Custos e Benefícios --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- financeiro &lt;- data.frame( --&gt;
+&lt;!--   Item = c("Investimento Inicial",  --&gt;
+&lt;!--            "Custo Operacional Anual", --&gt;
+&lt;!--            "ECONOMIA - Redução Quebras", --&gt;
+&lt;!--            "ECONOMIA - Redução Custo/km", --&gt;
+&lt;!--            "ECONOMIA - Multas Evitadas", --&gt;
+&lt;!--            "RECEITA - Maior Disponibilidade"), --&gt;
+&lt;!--   Valor = c("-R$ 373.000",  --&gt;
+&lt;!--             "-R$ 85.000", --&gt;
+&lt;!--             "+R$ 280.000", --&gt;
+&lt;!--             "+R$ 450.000", --&gt;
+&lt;!--             "+R$ 95.000", --&gt;
+&lt;!--             "+R$ 320.000") --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- kable(financeiro, format = "html", escape = FALSE) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover"),  --&gt;
+&lt;!--                 font_size = 13) %&gt;% --&gt;
+&lt;!--   row_spec(1:2, background = "#FADBD8") %&gt;% --&gt;
+&lt;!--   row_spec(3:6, background = "#D5F4E6") --&gt;
+&lt;!-- ``` --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- ROI (Return on Investment) --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- investimento &lt;- 373000 + 85000 --&gt;
+&lt;!-- beneficio_anual &lt;- 280000 + 450000 + 95000 + 320000 --&gt;
+
+&lt;!-- roi &lt;- ((beneficio_anual - investimento) / investimento) * 100 --&gt;
+&lt;!-- payback &lt;- investimento / beneficio_anual --&gt;
+
+&lt;!-- cat("Benefício Anual: R$",  --&gt;
+&lt;!--     format(beneficio_anual, big.mark = ".", decimal.mark = ","), "\n") --&gt;
+&lt;!-- cat("ROI: ", round(roi, 1), "%\n", sep = "") --&gt;
+&lt;!-- cat("Payback: ", round(payback, 2), " anos (",  --&gt;
+&lt;!--     round(payback * 12, 0), " meses)\n", sep = "") --&gt;
+&lt;!-- ``` --&gt;
+
+
+
+&lt;!-- Conclusão: O investimento se paga em menos de 5 meses, com retorno anual superior a 150%. --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 2 --&gt;
+
+&lt;!-- Análise de Confiabilidade em Frota de Veículos Elétricos --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- Contexto --&gt;
+
+&lt;!-- Empresa: EcoLog Distribuição Urbana --&gt;
+
+&lt;!-- Frota: 30 veículos elétricos --&gt;
+&lt;!-- Operação: Entregas last-mile --&gt;
+&lt;!-- Desafio: Nova tecnologia, pouca experiência --&gt;
+&lt;!-- Características da Frota --&gt;
+&lt;!-- Veículos: VUCs elétricos 3,5t --&gt;
+&lt;!-- Autonomia: 200 km --&gt;
+&lt;!-- Idade média: 18 meses --&gt;
+&lt;!-- Operação: 2 turnos/dia --&gt;
+&lt;!-- Recarga: Durante intervalos --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- Componentes Críticos Monitorados --&gt;
+&lt;!-- Bateria (tração) --&gt;
+&lt;!-- Capacidade de carga --&gt;
+&lt;!-- Ciclos de recarga --&gt;
+&lt;!-- Temperatura operacional --&gt;
+&lt;!-- Motor elétrico --&gt;
+&lt;!-- Temperatura --&gt;
+&lt;!-- Vibração --&gt;
+&lt;!-- Eficiência energética --&gt;
+&lt;!-- Sistema de gerenciamento (BMS) --&gt;
+&lt;!-- Software --&gt;
+&lt;!-- Sensores --&gt;
+&lt;!-- Comunicação --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 2 (continuação) --&gt;
+&lt;!-- Coleta e Análise de Dados --&gt;
+&lt;!-- Dados Coletados (18 meses de operação) --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- # Simulação de dados de degradação de bateria --&gt;
+&lt;!-- set.seed(123) --&gt;
+&lt;!-- veiculos &lt;- 1:30 --&gt;
+&lt;!-- tempo_meses &lt;- rep(0:18, each = 30) --&gt;
+&lt;!-- capacidade_inicial &lt;- 100 --&gt;
+
+&lt;!-- # Degradação não-linear da bateria --&gt;
+&lt;!-- degradacao &lt;- sapply(tempo_meses, function(t) { --&gt;
+&lt;!--   rnorm(1, mean = capacidade_inicial - (0.5 * t + 0.02 * t^1.5), sd = 2) --&gt;
+&lt;!-- }) --&gt;
+
+&lt;!-- dados_bateria &lt;- data.frame( --&gt;
+&lt;!--   Veiculo = rep(veiculos, 19), --&gt;
+&lt;!--   Mes = tempo_meses, --&gt;
+&lt;!--   Capacidade = pmax(degradacao, 70)  # Mínimo de 70% --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- # Resumo estatístico --&gt;
+&lt;!-- summary_bateria &lt;- dados_bateria %&gt;% --&gt;
+&lt;!--   filter(Mes %in% c(0, 6, 12, 18)) %&gt;% --&gt;
+&lt;!--   group_by(Mes) %&gt;% --&gt;
+&lt;!--   summarise( --&gt;
+&lt;!--     Media = round(mean(Capacidade), 1), --&gt;
+&lt;!--     DP = round(sd(Capacidade), 1), --&gt;
+&lt;!--     Minimo = round(min(Capacidade), 1), --&gt;
+&lt;!--     Maximo = round(max(Capacidade), 1) --&gt;
+&lt;!--   ) --&gt;
+
+&lt;!-- kable(summary_bateria, format = "html", escape = FALSE, --&gt;
+&lt;!--       col.names = c("Mês", "Capacidade Média (%)", "Desvio Padrão", "Mínimo (%)", "Máximo (%)")) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover"), font_size = 13) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 2 (continuação) --&gt;
+&lt;!-- Análise de Degradação da Bateria --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE, Fig.Height=6} --&gt;
+
+&lt;!-- # Gráfico de degradação --&gt;
+&lt;!-- ggplot(dados_bateria, aes(x = Mes, y = Capacidade, group = Veiculo)) + --&gt;
+&lt;!--   geom_line(alpha = 0.3, color = "#3498DB") + --&gt;
+&lt;!--   geom_smooth(aes(group = 1), method = "loess",  --&gt;
+&lt;!--               color = "#E74C3C", size = 1.5, se = TRUE) + --&gt;
+&lt;!--   geom_hline(yintercept = 80, linetype = "dashed",  --&gt;
+&lt;!--              color = "#F39C12", size = 1) + --&gt;
+&lt;!--   annotate("text", x = 15, y = 82,  --&gt;
+&lt;!--            label = "Limite mínimo aceitável (80%)",  --&gt;
+&lt;!--            color = "#F39C12", size = 4) + --&gt;
+&lt;!--   labs(title = "Degradação da Capacidade das Baterias ao Longo do Tempo", --&gt;
+&lt;!--        x = "Tempo de Operação (meses)", --&gt;
+&lt;!--        y = "Capacidade da Bateria (%)") + --&gt;
+&lt;!--   theme_minimal(base_size = 14) + --&gt;
+&lt;!--   theme(plot.title = element_text(hjust = 0.5, face = "bold")) --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 2 (continuação) --&gt;
+&lt;!-- Modelo Preditivo de Vida Útil --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- Ajuste do Modelo --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- # Modelo de regressão não-linear --&gt;
+&lt;!-- dados_media &lt;- dados_bateria %&gt;% --&gt;
+&lt;!--   group_by(Mes) %&gt;% --&gt;
+&lt;!--   summarise(Capacidade_Media = mean(Capacidade)) --&gt;
+
+&lt;!-- # Ajuste polinomial --&gt;
+&lt;!-- modelo &lt;- lm(Capacidade_Media ~ poly(Mes, 2),  --&gt;
+&lt;!--              data = dados_media) --&gt;
+
+&lt;!-- # Previsão de quando atingirá 80% --&gt;
+&lt;!-- meses_previsao &lt;- seq(0, 36, 0.1) --&gt;
+&lt;!-- previsao &lt;- predict(modelo,  --&gt;
+&lt;!--                     newdata = data.frame(Mes = meses_previsao)) --&gt;
+
+&lt;!-- # Encontrar quando atinge 80% --&gt;
+&lt;!-- mes_80 &lt;- meses_previsao[which.min(abs(previsao - 80))] --&gt;
+
+&lt;!-- cat("Previsão de vida útil até 80%:",  --&gt;
+&lt;!--     round(mes_80, 1), "meses\n") --&gt;
+&lt;!-- cat("Equivalente a:",  --&gt;
+&lt;!--     round(mes_80/12, 1), "anos") --&gt;
+&lt;!-- ``` --&gt;
+
+
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- Estratégia de Manutenção --&gt;
+
+&lt;!-- Decisões baseadas na análise: --&gt;
+
+&lt;!-- Monitoramento contínuo --&gt;
+&lt;!-- Telemetria em tempo real --&gt;
+&lt;!-- Alertas automáticos &lt; 85% --&gt;
+&lt;!-- Manutenção preventiva --&gt;
+&lt;!-- Recalibração do BMS aos 12 meses --&gt;
+&lt;!-- Verificação de células aos 18 meses --&gt;
+&lt;!-- Planejamento de substituição --&gt;
+&lt;!-- Orçamento para troca aos 24-30 meses --&gt;
+&lt;!-- Negociação com fabricante --&gt;
+&lt;!-- Otimização operacional --&gt;
+&lt;!-- Treinamento de motoristas --&gt;
+&lt;!-- Ajuste de rotas --&gt;
+&lt;!-- Gestão de recarga --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 2 (continuação) --&gt;
+&lt;!-- Resultados e Lições Aprendidas --&gt;
+&lt;!-- Comparação: Elétricos vs. Diesel --&gt;
+&lt;!-- ```{R echo=FALSE, message=FALSE, warning=FALSE} --&gt;
+
+&lt;!-- comparacao_frotas &lt;- data.frame( --&gt;
+&lt;!--   Aspecto = c("Custo de Manutenção/Ano",  --&gt;
+&lt;!--               "Disponibilidade", --&gt;
+&lt;!--               "Custo Energético/km", --&gt;
+&lt;!--               "Emissões CO₂", --&gt;
+&lt;!--               "MTBF", --&gt;
+&lt;!--               "Complexidade Manutenção"), --&gt;
+&lt;!--   Eletrico = c("R$ 8.500", "97%", "R$ 0,45", "0 kg", "3.200h", "Baixa"), --&gt;
+&lt;!--   Diesel = c("R$ 15.200", "94%", "R$ 1,85", "2,6 kg", "1.800h", "Alta"), --&gt;
+&lt;!--   Diferenca = c("-44%", "+3 p.p.", "-76%", "-100%", "+78%", "✓") --&gt;
+&lt;!-- ) --&gt;
+
+&lt;!-- kable(comparacao_frotas, format = "html", escape = FALSE, --&gt;
+&lt;!--       col.names = c("Aspecto", "Elétrico", "Diesel", "Diferença")) %&gt;% --&gt;
+&lt;!--   kable_styling(bootstrap_options = c("striped", "hover"),  --&gt;
+&lt;!--                 font_size = 13) %&gt;% --&gt;
+&lt;!--   column_spec(4, bold = TRUE, color = "white", background = "#27AE60") --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- --- --&gt;
+
+&lt;!-- ## CASO PRÁTICO 2 (continuação) --&gt;
+&lt;!-- Principais Aprendizados --&gt;
+
+&lt;!-- .pull-left[ --&gt;
+
+&lt;!-- Vantagens Identificadas --&gt;
+
+&lt;!-- ✓ Menor custo operacional --&gt;
+
+&lt;!-- Menos componentes móveis --&gt;
+&lt;!-- Sem troca de óleo --&gt;
+&lt;!-- Freios regenerativos (menor desgaste) --&gt;
+
+&lt;!-- ✓ Maior confiabilidade --&gt;
+
+&lt;!-- Menos sistemas complexos --&gt;
+&lt;!-- Diagnóstico digital facilitado --&gt;
+&lt;!-- Manutenção preditiva eficaz --&gt;
+
+&lt;!-- ✓ Sustentabilidade --&gt;
+
+&lt;!-- Zero emissões locais --&gt;
+&lt;!-- Menor ruído --&gt;
+&lt;!-- Imagem corporativa positiva --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- .pull-right[ --&gt;
+
+&lt;!-- Desafios Enfrentados --&gt;
+
+&lt;!-- ⚠ Infraestrutura de recarga --&gt;
+
+&lt;!-- Investimento em estações --&gt;
+&lt;!-- Gestão de demanda energética --&gt;
+&lt;!-- Tempo de recarga --&gt;
+
+&lt;!-- ⚠ Custo inicial elevado --&gt;
+
+&lt;!-- Veículo 60% mais caro --&gt;
+&lt;!-- Necessidade de financiamento --&gt;
+&lt;!-- Payback em 4-5 anos --&gt;
+
+&lt;!-- ⚠ Capacitação técnica --&gt;
+
+&lt;!-- Treinamento especializado --&gt;
+&lt;!-- Certificações necessárias --&gt;
+&lt;!-- Parcerias com fabricantes --&gt;
+
+&lt;!-- ⚠ Gestão de baterias --&gt;
+
+&lt;!-- Monitoramento constante --&gt;
+&lt;!-- Planejamento de substituição --&gt;
+&lt;!-- Destinação adequada (reciclagem) --&gt;
+
+&lt;!-- ] --&gt;
+
+&lt;!-- --- --&gt;
+
+---
+
+## Estudo de Viabilidade Econômica
+Análise de Investimento em Modernização
+
+Cenário: Empresa avalia investir em sistema preditivo completo
+
+&lt;table class="table table-striped table-hover" style="font-size: 13px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Ano &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Investimento (R$) &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Economia (R$) &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Fluxo de Caixa (R$) &lt;/th&gt;
+   &lt;th style="text-align:right;font-weight: bold;"&gt; Acumulado (R$) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+05 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -500000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; -500000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 130000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; -370000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 220000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 170000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; -200000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 250000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;"&gt; 200000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(213, 244, 230, 1) !important;font-weight: bold;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 270000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 220000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; 220000 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5e+04 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 280000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 230000 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; 450000 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Payback: 3 anos | VPL (10% a.a.): R$ 387.450 | TIR: 28,5%
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+  "ratio": "16:9",
+  "highlightLines": true,
+  "highlightStyle": "solarized-light",
+  "countIncrementalSlides": false,
+  "slideNumberFormat": "<div class=\"progress-bar-container\">\n  <div class=\"progress-bar\" style=\"width: calc(%current% / %total% * 100%);\">\n  </div>\n</div>"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

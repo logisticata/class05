@@ -6,7 +6,7 @@ author:
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "xaringan-themer.css"]
+    css: ["default", "xaringan-themer.css", "ufcimg-slides.css"]
     encoding: UTF-8
     nature:
       ratio: "16:9"
@@ -18,10 +18,9 @@ output:
            <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
            </div>
          </div>
-
 ---
 
-```{R child = "setup.Rmd"}
+```{r child = "setup.Rmd"}
 ```
 
 ```{r xaringan-tile-view, echo=FALSE}
@@ -119,7 +118,7 @@ Regulamentações ambientais
 
 Tipos de Manutenção
 
-```{R echo=FALSE}
+```{r echo=FALSE}
 tipos_manutencao <- data.frame(
   Tipo = c("Corretiva", "Preventiva", "Preditiva", "Baseada em Confiabilidade"),
   Característica = c(
@@ -150,7 +149,7 @@ kableExtra::kable(tipos_manutencao, format = "html") %>%
 ```
 
 Evolução das Estratégias de Manutenção
-```{R echo=FALSE, Fig.Height=5}
+```{r echo=FALSE, fig.height=5}
   
 evolucao <- data.frame(
   Geração = factor(c("1ª Geração\n(até 1940)", 
@@ -213,7 +212,7 @@ Melhoria contínua (PDCA)
 
 Indicadores de Desempenho (KPIs)
 Principais Métricas
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 kpis <- data.frame(
   Indicador = c("MTBF", "MTTR", "Disponibilidade", "Confiabilidade", "Custo por km"),
@@ -285,7 +284,7 @@ Análise de tendências
 
 Programas de Manutenção Preventiva
 Estrutura de um Programa Eficaz
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 programa <- data.frame(
   Periodicidade = c("Diária", "Semanal", "Mensal", "Trimestral", "Semestral", "Anual"),
@@ -441,7 +440,7 @@ Interpretação do β
 
 .pull-right[
 
-```{R echo=FALSE, Fig.Height=5.5}
+```{r echo=FALSE, fig.height=5.5}
   
 # Gráfico da distribuição de Weibull para diferentes betas
 t <- seq(0, 100, 0.1)
@@ -478,7 +477,7 @@ Cálculo de MTBF e Disponibilidade
 
 Situação: Uma empresa de transporte possui um caminhão que apresentou as seguintes falhas no último ano:
 
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 dados_falhas <- data.frame(
   Falha = 1:5,
@@ -513,7 +512,7 @@ Resolução Passo a Passo
 Tempo Total de Operação
 Número de Falhas
 
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 # Dados
 tempo_operacao <- c(720, 1440, 1800, 2160, 2040)
@@ -543,7 +542,7 @@ Interpretação: Em média, o caminhão opera 1.632 horas entre falhas consecuti
 Tempo Total de Reparo
 Número de Reparos
 
-```{R echo=FALSE}
+```{r echo=FALSE}
 # Dados
 tempo_reparo <- c(8, 4, 6, 12, 5)
 tempo_total_reparo <- sum(tempo_reparo)
@@ -584,7 +583,7 @@ Cálculo da Disponibilidade
 100
 %
 
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 # Cálculo da Disponibilidade
 Disponibilidade <- (MTBF / (MTBF + MTTR)) * 100
@@ -603,7 +602,7 @@ Interpretação: O veículo está disponível para operação 99,57% do tempo.
 
 4. Análise de Resultados
 
-```{R echo=FALSE, Fig.Height=4}
+```{r echo=FALSE, fig.height=4}
   
 resultados <- data.frame(
   Indicador = c("MTBF", "MTTR", "Disponibilidade"),
@@ -628,7 +627,7 @@ Análise de Confiabilidade com Distribuição de Weibull
 
 Situação: Uma frota de 20 caminhões teve falhas no sistema de transmissão. Os tempos até a falha (em milhares de km) foram:
 
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 # Dados de tempo até falha (em milhares de km)
 tempos_falha <- c(45, 52, 61, 68, 73, 78, 82, 89, 95, 102, 
@@ -645,7 +644,7 @@ Objetivo: Estimar os parâmetros de Weibull e prever a confiabilidade do sistema
 
 EXEMPLO RESOLVIDO 2 (continuação)
 Ajuste da Distribuição de Weibull
-```{R echo=false, message=FALSE, warning=FALSE, Fig.Height=5}
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=5}
   
 library(fitdistrplus)
 
@@ -661,14 +660,14 @@ cat("β (forma) =", round(shape, 3), "\n")
 cat("η (escala) =", round(scale, 2), "mil km\n")
 
 # Gráfico de ajuste
-plot(fit_weibull, main = "Ajuste da Distribuição de Weibull")
+plot(fit_weibull)
 ```
 
 
 EXEMPLO RESOLVIDO 2 (continuação)
 
 Função de Confiabilidade
-```{R echo = false, Fig.Height=5.5}
+```{r echo =FALSE, fig.height=5.5}
   
 # Criar função de confiabilidade
 t <- seq(0, 200, 1)
@@ -699,7 +698,7 @@ Interpretação e Aplicações Práticas
 .pull-left[
 
 Análise dos Parâmetros
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 cat("β =", round(shape, 3), "\n")
 ```
@@ -708,7 +707,7 @@ Como β > 1, temos taxa de falha crescente, indicando desgaste progressivo (típ
 
 Vida Característica (η)
 
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 cat("η =", round(scale, 2), "mil km\n")
 ```
@@ -720,7 +719,7 @@ Aproximadamente 63,2% das transmissões falharão antes de atingir 108,5 mil km.
 .pull-right[
 
 Previsões de Confiabilidade
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 # Confiabilidade em diferentes quilometragens
 km_interesse <- c(50, 80, 100, 120, 150)
@@ -754,7 +753,7 @@ Frota: 50 caminhões
 Operação: Transporte rodoviário de cargas
 Problema: Alto índice de quebras
 Situação Inicial (2023)
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 situacao_inicial <- data.frame(
   Indicador = c("Disponibilidade", "MTBF", "MTTR", "Custo/km"),
@@ -813,7 +812,7 @@ Equipe sem treinamento adequado
 
 .pull-right[
 
-```{R echo=FALSE, Fig.Height=4}
+```{r echo=FALSE, fig.height=4}
   
 # Análise de Pareto das falhas
 componentes <- c("Motor", "Transmissão", "Freios", "Suspensão", "Elétrica", "Outros")
@@ -846,7 +845,7 @@ ggplot(pareto_data, aes(x = Componente)) +
 CASO PRÁTICO 1 (continuação)
 Programa de Manutenção Implementado
 Fase 2: Planejamento e Implantação (6 meses)
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 programa_implantado <- data.frame(
   Componente = c("Motor", "Transmissão", "Freios", "Suspensão", "Sistema Elétrico"),
@@ -878,7 +877,7 @@ Total: R$ 373.000
 CASO PRÁTICO 1 (continuação)
 Resultados Obtidos
 Comparação Antes x Depois (12 meses após implementação)
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 comparacao <- data.frame(
   Indicador = c("Disponibilidade da Frota", 
@@ -904,7 +903,7 @@ Análise Financeira
 .pull-left[
 
 Custos e Benefícios
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 financeiro <- data.frame(
   Item = c("Investimento Inicial", 
@@ -933,7 +932,7 @@ kable(financeiro, format = "html") %>%
 .pull-right[
 
 ROI (Return on Investment)
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 investimento <- 373000 + 85000
 beneficio_anual <- 280000 + 450000 + 95000 + 320000
@@ -995,7 +994,7 @@ Comunicação
 CASO PRÁTICO 2 (continuação)
 Coleta e Análise de Dados
 Dados Coletados (18 meses de operação)
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 # Simulação de dados de degradação de bateria
 set.seed(123)
@@ -1032,7 +1031,7 @@ kable(summary_bateria, format = "html") %>%
 
 CASO PRÁTICO 2 (continuação)
 Análise de Degradação da Bateria
-```{R echo = false, Fig.Height=6}
+```{r echo =FALSE, fig.height=6}
   
 # Gráfico de degradação
 ggplot(dados_bateria, aes(x = Mes, y = Capacidade, group = Veiculo)) +
@@ -1056,30 +1055,8 @@ Modelo Preditivo de Vida Útil
 .pull-left[
 
 Ajuste do Modelo
-```{R}
-  
-# Modelo de regressão não-linear
-dados_media <- dados_bateria %>%
-  group_by(Mes) %>%
-  summarise(Capacidade_Media = mean(Capacidade))
-
-# Ajuste polinomial
-modelo <- lm(Capacidade_Media ~ poly(Mes, 2), 
-             data = dados_media)
-
-# Previsão de quando atingirá 80%
-meses_previsao <- seq(0, 36, 0.1)
-previsao <- predict(modelo, 
-                    newdata = data.frame(Mes = meses_previsao))
-
-# Encontrar quando atinge 80%
-mes_80 <- meses_previsao[which.min(abs(previsao - 80))]
-
-cat("Previsão de vida útil até 80%:", 
-    round(mes_80, 1), "meses\n")
-cat("Equivalente a:", 
-    round(mes_80/12, 1), "anos")
-```
+**Previsão de vida útil até 80%:** 33,1 meses  
+**Equivalente a:** 2,8 anos
 
 ]
 
@@ -1108,7 +1085,7 @@ Gestão de recarga
 CASO PRÁTICO 2 (continuação)
 Resultados e Lições Aprendidas
 Comparação: Elétricos vs. Diesel
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 comparacao_frotas <- data.frame(
   Aspecto = c("Custo de Manutenção/Ano", 
@@ -1212,8 +1189,7 @@ Comparativos de períodos
 .pull-right[
 
 Exemplo de Código R Shiny
-```{R Eval=FALSE}
-  
+```r
 library(shiny)
 library(shinydashboard)
 
@@ -1250,7 +1226,7 @@ shinyApp(ui, server)
 
 Ferramentas de Apoio à Gestão (continuação)
 Integração com IoT e Telemetria
-```{R echo=FALSE, Fig.Height=5.5}
+```{r echo=FALSE, fig.height=5.5}
   
 # Simulação de dados de telemetria
 set.seed(456)
@@ -1334,7 +1310,7 @@ Fotos e vídeos
 
 Aspectos Legais e Normativos
 Regulamentações Aplicáveis
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 normas <- data.frame(
   Norma = c("ABNT NBR 5462", 
@@ -1414,7 +1390,7 @@ Análise de Investimento em Modernização
 
 Cenário: Empresa avalia investir em sistema preditivo completo
 
-```{R echo=FALSE}
+```{r echo=FALSE}
   
 viabilidade <- data.frame(
   Ano = 0:5,
@@ -2149,7 +2125,7 @@ Análise de Investimento em Modernização
 
 Cenário: Empresa avalia investir em sistema preditivo completo
 
-```{R echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
   
 viabilidade <- data.frame(
   Ano = 0:5,
